@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdggw1uagubs0"]
+
+[ext_resource type="Shader" path="res://assets/shaders/player.gdshader" id="1_iu338"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_233v3"]
+render_priority = 0
+shader = ExtResource("1_iu338")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_62y8i"]
+material = SubResource("ShaderMaterial_233v3")
+
+[sub_resource type="BoxMesh" id="BoxMesh_d3qub"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_gfw2q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_62y8i")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.650912, 0.511938, 0.519475, 0)
+mesh = SubResource("BoxMesh_d3qub")
