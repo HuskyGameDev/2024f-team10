@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://cq74dp3td8yax"]
+[gd_scene load_steps=21 format=3 uid="uid://cq74dp3td8yax"]
 
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="1_2ae6i"]
+[ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="1_ilh3k"]
 [ext_resource type="Texture2D" uid="uid://dpjw6mvvbgjtd" path="res://assets/addons/godot-prototype-texture/PNG/checker_black_512x512.png" id="1_rswg0"]
 [ext_resource type="Texture2D" uid="uid://k2d072d5osso" path="res://assets/addons/godot-prototype-texture/PNG/grid_orange_512x512.png" id="2_0fwkx"]
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="2_v72sf"]
@@ -63,6 +64,8 @@ uv2_world_triplanar = true
 material = SubResource("StandardMaterial3D_c3r15")
 
 [node name="Game" type="Node3D"]
+
+[node name="GUI" parent="." instance=ExtResource("1_ilh3k")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pia4t")

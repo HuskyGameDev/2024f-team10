@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjy7xw2naks0s"]
+
+[ext_resource type="PackedScene" uid="uid://1qddjt38g4h2" path="res://scenes/interface_scenes/counter.tscn" id="1_1jbtd"]
+
+[node name="EmeraldCounter" instance=ExtResource("1_1jbtd")]

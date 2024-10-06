@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx6x6es0vx7b"]
+
+[ext_resource type="Texture2D" uid="uid://dpjw6mvvbgjtd" path="res://assets/addons/godot-prototype-texture/PNG/checker_black_512x512.png" id="1_v56lo"]
+[ext_resource type="Texture2D" uid="uid://d3tfa1syggu0s" path="res://interface/Orc_Icon.png" id="2_5e0a3"]
+[ext_resource type="Texture2D" uid="uid://bn34krccqopdp" path="res://interface/Melee_Icon.png" id="3_15fxx"]
+[ext_resource type="Texture2D" uid="uid://cw72wit7hqq00" path="res://interface/Range_Icon.png" id="4_jq30e"]
+[ext_resource type="Texture2D" uid="uid://843cq3384dk2" path="res://interface/Heavy_Icon.png" id="5_vausi"]
+
+[node name="NinePatchRect" type="NinePatchRect"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -160.0
+offset_right = 350.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_v56lo")
+
+[node name="OrcTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 0.75
+offset_bottom = 0.999992
+texture = ExtResource("2_5e0a3")
+expand_mode = 1
+
+[node name="OrcLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75
+anchor_right = 0.25
+anchor_bottom = 1.0
+text = "Cost"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MeleeTextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.75
+offset_bottom = 0.999992
+texture = ExtResource("3_15fxx")
+expand_mode = 1
+
+[node name="MeleeLabel2" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.75
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -1.0
+text = "Cost"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RangeTextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.75
+offset_right = 0.999939
+offset_bottom = 0.999992
+texture = ExtResource("4_jq30e")
+expand_mode = 1
+
+[node name="RangerLabel3" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.775
+anchor_right = 0.75
+anchor_bottom = 1.0
+offset_right = -6.10352e-05
+text = "Cost"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HeavyTextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_right = 1.0
+anchor_bottom = 0.75
+offset_left = -6.10352e-05
+offset_bottom = 0.999985
+texture = ExtResource("5_vausi")
+expand_mode = 1
+
+[node name="HeavyLabel4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.10352e-05
+grow_horizontal = 0
+grow_vertical = 0
+text = "Cost"
+horizontal_alignment = 1
+vertical_alignment = 1
