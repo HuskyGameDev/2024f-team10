@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://cerl73dej0wlf"]
+[gd_scene load_steps=4 format=3 uid="uid://cerl73dej0wlf"]
+
+[ext_resource type="PackedScene" uid="uid://bjy7xw2naks0s" path="res://scenes/interface_scenes/emerald_counter.tscn" id="1_jgiqd"]
+[ext_resource type="PackedScene" uid="uid://bqvvf3xbsema" path="res://scenes/interface_scenes/multiplier.tscn" id="2_ans22"]
+[ext_resource type="PackedScene" uid="uid://cx6x6es0vx7b" path="res://scenes/interface_scenes/units.tscn" id="3_rgups"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -7,3 +11,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="EmeraldCounter" parent="." instance=ExtResource("1_jgiqd")]
+layout_mode = 1
+
+[node name="Multiplier" parent="." instance=ExtResource("2_ans22")]
+layout_mode = 1
+
+[node name="UnitBar" parent="." instance=ExtResource("3_rgups")]
+layout_mode = 1
