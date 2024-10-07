@@ -32,22 +32,22 @@ func handleMovementInput(delta : float) -> void:
 	
 	# Get input
 	if ( Input.is_key_pressed(KEY_UP) || mouseOnTop):
-		newPosition += -transform.basis.z * movementSpeed # -tranform.basis.z is equavalent to transform.fowrard in Unity
+		newPosition += -transform.basis.z * movementSpeed * delta # -tranform.basis.z is equavalent to transform.fowrard in Unity
 	
 	if ( Input.is_key_pressed(KEY_DOWN) || mouseOnBot):
-		newPosition += transform.basis.z * movementSpeed
+		newPosition += transform.basis.z * movementSpeed * delta
 	
 	if ( Input.is_key_pressed(KEY_LEFT) || mouseOnLeft):
-		newPosition += -transform.basis.x * movementSpeed
+		newPosition += -transform.basis.x * movementSpeed * delta
 	
 	if ( Input.is_key_pressed(KEY_RIGHT) || mouseOnRight):
-		newPosition += transform.basis.x * movementSpeed
+		newPosition += transform.basis.x * movementSpeed * delta
 	
 	if ( Input.is_key_pressed(KEY_Q) ):
-		newRotation += rotationAmount
+		newRotation += rotationAmount * delta
 	
 	if ( Input.is_key_pressed(KEY_E) ):
-		newRotation -= rotationAmount
+		newRotation -= rotationAmount * delta
 	
 
 	# Update the position

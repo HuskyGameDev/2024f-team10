@@ -1,20 +1,21 @@
 # Being Worked on by Logan Cole
+class_name Unit
 extends CharacterBody3D
 
+
+
 # Unit stats
-var maxHealth : int
-var currentHealth : int
-var healthRegen : int
-var attackDmg : int
-var attackSpeed : float
-var attackRange : float
+@export_category("Unit Stats")
+@export var MAX_HEALTH : float
+@export var currentHealth : float
+@export var healthRegen : float
+@export var attackDmg : float
+@export var attackSpeed : float
+@export var attackRange : float
 
+# Objects
+var regenTimer : Timer
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+# custom fucntions
+func attack(target : Unit):
 	pass

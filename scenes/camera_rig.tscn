@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://epy08dhbnqp"]
+
+[ext_resource type="Script" path="res://scripts/CameraController.gd" id="1_51gxm"]
+
+[node name="CameraRig" type="Node3D"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 1.5, 0)
+script = ExtResource("1_51gxm")
+edgeSize = 50
+movementSpeed = 10.0
+movementTime = 10.0
+rotationAmount = 1.0
+zoomAmount = Vector3(0, 10, 10)
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 50, 50)
+fov = 10.0
+size = 13.0
