@@ -15,7 +15,7 @@ func _ready() -> void:
 	rangeDetector.radius = attackRange
 	shape_cast_3d.shape = rangeDetector
 	
-	attack_timer.wait_time = 1 / attackSpeed
+	attack_timer.wait_time = attackSpeed
 	
 
 func _process(delta: float) -> void:
@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	pass
 
-func damage(amount : int):
+func damage(amount : float):
 	currentHealth -= amount
 
 # called every 0.1 seconds
