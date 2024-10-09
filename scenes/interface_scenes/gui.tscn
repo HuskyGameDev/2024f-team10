@@ -34,6 +34,7 @@ layout_mode = 1
 
 [connection signal="enoughEmerald" from="emeraldCounter" to="UnitBar" method="costCheck"]
 [connection signal="multi" from="Multiplier" to="UnitBar" method="_multiplier_change"]
+[connection signal="emeraldDeduction" from="UnitBar" to="emeraldCounter" method="checkEmerald"]
 
 [editable path="emeraldCounter"]
 [editable path="Multiplier"]

@@ -8,13 +8,13 @@ signal enoughEmerald(checkValue, troopN, TroopMulti)
 
 func passiveEmerald():
 	emeraldCount += passiveEmAdd
-	var label = get_node("Label")
+	var label = get_node("emeraldLabel")
 	label.text = str(emeraldCount)
 	pass
 
 func removeEmerald(value):
 	emeraldCount -= value
-	var label = get_node("Label")
+	var label = get_node("emeraldLabel")
 	label.text = str(emeraldCount)
 	pass
 

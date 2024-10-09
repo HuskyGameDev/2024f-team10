@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://iiver4taymqb"]
+
+[node name="Bullet" type="CharacterBody3D"]
