@@ -22,7 +22,7 @@ shape = SubResource("BoxShape3D_neth3")
 [node name="Aim" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.23216, 0.561242)
 
-[node name="DetectionRange" type="Area3D" parent="."]
+[node name="DetectionRange" type="Area3D" parent="." groups=["Tower Troop"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
