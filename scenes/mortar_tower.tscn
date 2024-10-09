@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmofeqscvw4an"]
+[gd_scene load_steps=5 format=3 uid="uid://c2vcf2wfbkhy4"]
 
-[ext_resource type="Script" path="res://scripts/tower.gd" id="1_hun1j"]
-[ext_resource type="ArrayMesh" uid="uid://v0ilfu1sriju" path="res://assets/tower1.obj" id="2_col2g"]
+[ext_resource type="Script" path="res://scripts/mortar_tower.gd" id="1_1jji6"]
+[ext_resource type="ArrayMesh" uid="uid://v0ilfu1sriju" path="res://assets/tower1.obj" id="2_g6b48"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_neth3"]
 size = Vector3(1.92557, 0.272232, 2.13767)
@@ -9,11 +9,11 @@ size = Vector3(1.92557, 0.272232, 2.13767)
 [sub_resource type="SphereShape3D" id="SphereShape3D_stqfw"]
 
 [node name="Tower" type="StaticBody3D"]
-script = ExtResource("1_hun1j")
+script = ExtResource("1_1jji6")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0.991615, 0.0858327, 0.924894)
-mesh = ExtResource("2_col2g")
+mesh = ExtResource("2_g6b48")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00154155, -0.00910187, -0.00619654)
@@ -24,7 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.65452, 0.00823981)
 
 [node name="DetectionRange" type="Area3D" parent="."]
 
-[node name="Range" type="CollisionShape3D" parent="DetectionRange"]
+[node name="OuterRange" type="CollisionShape3D" parent="DetectionRange"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 shape = SubResource("SphereShape3D_stqfw")
 
