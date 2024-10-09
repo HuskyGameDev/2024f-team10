@@ -17,3 +17,6 @@ extends CharacterBody3D
 # custom fucntions
 func attack(target : Unit):
 	pass
+
+func damage(amount : float):
+	pass
