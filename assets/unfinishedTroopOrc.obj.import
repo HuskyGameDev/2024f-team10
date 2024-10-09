@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bm7ji3coq3o07"
+path="res://.godot/imported/unfinishedTroopOrc.obj-357a604b6eac31592a125c5f31fbc20f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/unfinishedTroopOrc.obj-357a604b6eac31592a125c5f31fbc20f.mesh"]
+
+source_file="res://assets/unfinishedTroopOrc.obj"
+dest_files=["res://.godot/imported/unfinishedTroopOrc.obj-357a604b6eac31592a125c5f31fbc20f.mesh", "res://.godot/imported/unfinishedTroopOrc.obj-357a604b6eac31592a125c5f31fbc20f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
