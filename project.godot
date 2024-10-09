@@ -15,9 +15,19 @@ run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="Offended Monsters"
+
+[global_group]
+
+"Orc Troop"="Group for any orc (friendly) troop, used to differentiate between enemy troops and allied troops for tower targeting"
+"Tower Troop"="Troops that come from each tower and attack the friendly orc troops"
 
 [input]
 
