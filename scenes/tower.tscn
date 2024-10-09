@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmofeqscvw4an"]
+
+[ext_resource type="Script" path="res://scripts/tower.gd" id="1_hun1j"]
+[ext_resource type="ArrayMesh" uid="uid://i1o2p5aswx0v" path="res://assets/tower.obj" id="1_sgomw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_neth3"]
+size = Vector3(1.95325, 0.272232, 2.14742)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_stqfw"]
+
+[node name="Tower" type="StaticBody3D"]
+script = ExtResource("1_hun1j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.4, 0)
+mesh = ExtResource("1_sgomw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000183105, -0.00910187, -0.282784)
+shape = SubResource("BoxShape3D_neth3")
+
+[node name="Aim" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.23216, 0.561242)
+
+[node name="DetectionRange" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("SphereShape3D_stqfw")
+
+[node name="BulletContainer" type="Node" parent="."]
+
+[node name="FireRate" type="Timer" parent="."]
+
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
