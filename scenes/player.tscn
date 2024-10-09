@@ -26,7 +26,7 @@ attackDmg = 10.0
 attackSpeed = 5.5
 attackRange = 1.2
 
-[node name="Hitbox" type="CollisionShape3D" parent="."]
+[node name="Hitbox" type="CollisionShape3D" parent="." groups=["Orc Troop"]]
 shape = SubResource("CapsuleShape3D_gfw2q")
 
 [node name="Body" type="MeshInstance3D" parent="."]
@@ -40,8 +40,13 @@ mesh = SubResource("BoxMesh_d3qub")
 shape = SubResource("SphereShape3D_0x56e")
 exclude_parent = false
 
-[node name="Timer" type="Timer" parent="."]
+[node name="RegenTimer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

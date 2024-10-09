@@ -13,8 +13,6 @@ extends CharacterBody3D
 @export var attackSpeed : float
 @export var attackRange : float
 
-# Objects
-var regenTimer : Timer
 
 # custom fucntions
 func attack(target : Unit):

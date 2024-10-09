@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqvvf3xbsema"]
 
 [ext_resource type="ButtonGroup" uid="uid://viyv27fdybl" path="res://scenes/interface_scenes/multi_button_group.tres" id="1_0iowp"]
-[ext_resource type="Script" path="res://scripts/multiplier.gd" id="1_6x33d"]
+[ext_resource type="Script" path="res://scripts/interface_scripts/multiplier.gd" id="1_6x33d"]
 
 [sub_resource type="Gradient" id="Gradient_ks0js"]
 

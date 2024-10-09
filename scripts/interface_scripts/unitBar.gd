@@ -1,6 +1,8 @@
 extends NinePatchRect
 
-signal emeraldDeduction(value)
+signal emeraldDeduction(value, troopVal, troopNum)
+
+signal spawnTroop(troopVal, troopNum)
 
 var multiplier : int = 1
 
@@ -31,15 +33,29 @@ func _on_pressed(value):
 		1:
 			print("Orc Spawn")
 			cost = multiplier*orcCost
+			emit_signal("emeraldDeduction", cost, 1, multiplier)
+			pass
 		2:
 			print("Melee Spawn")
 			cost = multiplier*meleeCost
+			emit_signal("emeraldDeduction", cost, 2, multiplier)
+			pass
 		3:
 			print("Range Spawn")
 			cost = multiplier*rangeCost
+			emit_signal("emeraldDeduction", cost, 3, multiplier)
+			pass
 		4:
 			print("Heavy Spawn")
 			cost = multiplier*heavyCost
+			emit_signal("emeraldDeduction", cost, 4, multiplier)
+			pass
 	
-	emit_signal("emeraldDeduction", cost)
 	pass
+	
+func costCheck(tfvalue, troopVal, troopNum):#Called by signal enoughEmerald in emerald_counter.gd
+	if tfvalue == true:
+		emit_signal("spawnTroop", troopVal, troopNum)
+		pass
+	else:
+		pass
