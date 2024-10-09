@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx6x6es0vx7b"]
+[gd_scene load_steps=7 format=3 uid="uid://cx6x6es0vx7b"]
 
 [ext_resource type="Texture2D" uid="uid://dpjw6mvvbgjtd" path="res://assets/addons/godot-prototype-texture/PNG/checker_black_512x512.png" id="1_v56lo"]
 [ext_resource type="Texture2D" uid="uid://cw38owghb6isa" path="res://interface/Orc_Icon.png" id="2_5e0a3"]
+[ext_resource type="Script" path="res://scripts/unitBar.gd" id="2_ldllf"]
 [ext_resource type="Texture2D" uid="uid://bn34krccqopdp" path="res://interface/Melee_Icon.png" id="3_15fxx"]
 [ext_resource type="Texture2D" uid="uid://cw72wit7hqq00" path="res://interface/Range_Icon.png" id="4_jq30e"]
 [ext_resource type="Texture2D" uid="uid://843cq3384dk2" path="res://interface/Heavy_Icon.png" id="5_vausi"]
@@ -18,6 +19,7 @@ offset_right = 350.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("1_v56lo")
+script = ExtResource("2_ldllf")
 
 [node name="OrcTextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -28,17 +30,25 @@ offset_bottom = 0.999992
 texture = ExtResource("2_5e0a3")
 expand_mode = 1
 
+[node name="OrcButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75
+anchor_right = 0.25
+anchor_bottom = 0.994
+offset_bottom = 0.959991
+
 [node name="OrcLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.75
 anchor_right = 0.25
 anchor_bottom = 1.0
-text = "Cost"
+text = "Cost: 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MeleeTextureRect2" type="TextureRect" parent="."]
+[node name="MeleeTextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
@@ -48,19 +58,26 @@ offset_bottom = 0.999992
 texture = ExtResource("3_15fxx")
 expand_mode = 1
 
-[node name="MeleeLabel2" type="Label" parent="."]
+[node name="MeleeButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
 anchor_top = 0.75
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_bottom = -1.0
-text = "Cost"
+
+[node name="MeleeLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.75
+anchor_right = 0.5
+anchor_bottom = 1.0
+text = "Cost: 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RangeTextureRect3" type="TextureRect" parent="."]
+[node name="RangeTextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -71,19 +88,28 @@ offset_bottom = 0.999992
 texture = ExtResource("4_jq30e")
 expand_mode = 1
 
-[node name="RangerLabel3" type="Label" parent="."]
+[node name="RangeButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.775
+anchor_top = 0.75
 anchor_right = 0.75
 anchor_bottom = 1.0
-offset_right = -6.10352e-05
-text = "Cost"
+offset_top = 0.999992
+offset_right = 0.999939
+
+[node name="RangeLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.75
+anchor_right = 0.75
+anchor_bottom = 1.0
+text = "Cost: 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HeavyTextureRect4" type="TextureRect" parent="."]
+[node name="HeavyTextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.75
@@ -94,7 +120,17 @@ offset_bottom = 0.999985
 texture = ExtResource("5_vausi")
 expand_mode = 1
 
-[node name="HeavyLabel4" type="Label" parent="."]
+[node name="HeavyButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.999939
+offset_bottom = -1.0
+
+[node name="HeavyLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.75
@@ -104,6 +140,11 @@ anchor_bottom = 1.0
 offset_left = -6.10352e-05
 grow_horizontal = 0
 grow_vertical = 0
-text = "Cost"
+text = "Cost: 4"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="OrcButton" to="." method="_on_pressed" binds= [1]]
+[connection signal="pressed" from="MeleeButton" to="." method="_on_pressed" binds= [2]]
+[connection signal="pressed" from="RangeButton" to="." method="_on_pressed" binds= [3]]
+[connection signal="pressed" from="HeavyButton" to="." method="_on_pressed" binds= [4]]

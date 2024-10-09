@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cerl73dej0wlf"]
+[gd_scene load_steps=5 format=3 uid="uid://cerl73dej0wlf"]
 
 [ext_resource type="PackedScene" uid="uid://bjy7xw2naks0s" path="res://scenes/interface_scenes/emerald_counter.tscn" id="1_jgiqd"]
 [ext_resource type="PackedScene" uid="uid://bqvvf3xbsema" path="res://scenes/interface_scenes/multiplier.tscn" id="2_ans22"]
 [ext_resource type="PackedScene" uid="uid://cx6x6es0vx7b" path="res://scenes/interface_scenes/units.tscn" id="3_rgups"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_k7g3p"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -18,5 +20,21 @@ layout_mode = 1
 [node name="Multiplier" parent="." instance=ExtResource("2_ans22")]
 layout_mode = 1
 
+[node name="1XButton" parent="Multiplier" index="1"]
+button_group = SubResource("ButtonGroup_k7g3p")
+
+[node name="5xButton" parent="Multiplier" index="2"]
+button_group = SubResource("ButtonGroup_k7g3p")
+
+[node name="10xButton" parent="Multiplier" index="3"]
+button_group = SubResource("ButtonGroup_k7g3p")
+
 [node name="UnitBar" parent="." instance=ExtResource("3_rgups")]
 layout_mode = 1
+
+[connection signal="multi" from="Multiplier" to="UnitBar" method="_multiplier_change"]
+[connection signal="emeraldDeduction" from="UnitBar" to="EmeraldCounter" method="removeEmerald"]
+
+[editable path="EmeraldCounter"]
+[editable path="Multiplier"]
+[editable path="UnitBar"]
