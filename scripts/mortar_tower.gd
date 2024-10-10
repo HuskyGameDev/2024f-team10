@@ -1,7 +1,7 @@
 extends StaticBody3D
 
 var bullet
-var damage : int = 10
+var damage : int = 5
 var targets : Array = []
 var cur_tar : Unit
 var can_shoot : bool = true
@@ -20,6 +20,11 @@ func _on_detection_range_body_entered(body):
 		choose_target(targets)
 
 func _on_detection_range_body_exited(body):
+	if body.is_in_group("Orc Troop"):
+		targets.erase(body)
+		choose_target(targets)
+
+func _on_too_close_range_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Orc Troop"):
 		targets.erase(body)
 		choose_target(targets)
