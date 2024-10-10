@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	if (currentHealth <= 0):
 		queue_free()
 	
-	if(canAttack):
+	if(canAttack && cur_tar != null):
 		attack(cur_tar)
 		attack_timer.start()
 		canAttack = false
