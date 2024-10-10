@@ -15,7 +15,7 @@ extends CharacterBody3D
 
 
 # custom fucntions
-func attack(target : Unit):
+func attack(target : StaticBody3D):
 	pass
 
 func damage(amount : float):

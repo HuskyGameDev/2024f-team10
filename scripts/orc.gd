@@ -31,6 +31,11 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	pass
 
+func attack(target : StaticBody3D):
+	if (target.is_in_group("Tower Troop")):
+		target.take_damage(attackDmg)
+		print(target)
+		print("attacked")
 func damage(amount : float):
 	currentHealth -= amount
 
@@ -46,12 +51,12 @@ func _on_attack_timer_timeout() -> void:
 
 # enemy detection code
 var targets : Array = []
-var cur_tar : Unit
+var cur_tar : StaticBody3D
 var can_shoot : bool = true
 
 func choose_target(targets : Array) -> void:
 	var temp_array : Array = targets
-	var current_target : Unit = null
+	var current_target : StaticBody3D = null
 	for i in temp_array:
 		if current_target == null:
 			current_target = i
