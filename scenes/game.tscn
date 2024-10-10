@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cq74dp3td8yax"]
+[gd_scene load_steps=20 format=3 uid="uid://cq74dp3td8yax"]
 
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="1_2ae6i"]
 [ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="1_ilh3k"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://k2d072d5osso" path="res://assets/addons/godot-prototype-texture/PNG/grid_orange_512x512.png" id="2_0fwkx"]
 [ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/camera_rig.tscn" id="3_icaeh"]
 [ext_resource type="Texture2D" uid="uid://d3efjw3avj0g6" path="res://assets/addons/godot-prototype-texture/PNG/grid_blue_512x512.png" id="3_m5era"]
-[ext_resource type="PackedScene" uid="uid://bdggw1uagubs0" path="res://scenes/orc.tscn" id="5_ee78g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pv8rd"]
 shader = ExtResource("1_2ae6i")
@@ -128,5 +127,15 @@ shape = SubResource("BoxShape3D_elt44")
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 mesh = SubResource("BoxMesh_r37bp")
 
-[node name="Orc" parent="." groups=["Orc Troop"] instance=ExtResource("5_ee78g")]
+[node name="Orc" parent="." groups=["Orc Troop"]]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = null
