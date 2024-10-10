@@ -25,6 +25,7 @@ func _process(delta):
 	if is_instance_valid(cur_tar):
 		look_at(cur_tar.global_position)
 		if can_shoot:
+			#shoot()
 			can_shoot = false
 			$FireRate.start()
 	else:
