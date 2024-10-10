@@ -1,20 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdggw1uagubs0"]
+[gd_scene load_steps=5 format=3 uid="uid://bdggw1uagubs0"]
 
 [ext_resource type="Script" path="res://scripts/orc.gd" id="1_c4y2i"]
-[ext_resource type="Shader" path="res://assets/shaders/player.gdshader" id="1_iu338"]
+[ext_resource type="ArrayMesh" uid="uid://bwunjkgw04dg" path="res://assets/unfinishedTroopOrc.obj" id="2_rfewd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_233v3"]
-render_priority = 0
-shader = ExtResource("1_iu338")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_62y8i"]
-material = SubResource("ShaderMaterial_233v3")
-
-[sub_resource type="BoxMesh" id="BoxMesh_d3qub"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_0x56e"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_2ivwk"]
 
 [node name="Orc" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -30,15 +21,14 @@ attackRange = 1.2
 shape = SubResource("CapsuleShape3D_gfw2q")
 
 [node name="Body" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_62y8i")
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, -0.924978, 0)
+mesh = ExtResource("2_rfewd")
 
-[node name="Glasses" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.650912, 0.511938, 0.519475, 0)
-mesh = SubResource("BoxMesh_d3qub")
+[node name="DetectionRange" type="Area3D" parent="." groups=["Tower Troop"]]
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
-shape = SubResource("SphereShape3D_0x56e")
-exclude_parent = false
+[node name="Range" type="CollisionShape3D" parent="DetectionRange"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("SphereShape3D_2ivwk")
 
 [node name="RegenTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -48,5 +38,7 @@ autostart = true
 one_shot = true
 autostart = true
 
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
 [connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
