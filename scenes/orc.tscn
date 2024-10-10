@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdggw1uagubs0"]
+[gd_scene load_steps=5 format=3 uid="uid://cb3d50k44xdr1"]
 
 [ext_resource type="Script" path="res://scripts/orc.gd" id="1_c4y2i"]
-[ext_resource type="ArrayMesh" uid="uid://bwunjkgw04dg" path="res://assets/unfinishedTroopOrc.obj" id="2_rfewd"]
+[ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_rfewd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2ivwk"]
 
-[node name="Orc" type="CharacterBody3D"]
+[node name="Orc" type="CharacterBody3D" groups=["Orc Troop"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_c4y2i")
 MAX_HEALTH = 100.0
