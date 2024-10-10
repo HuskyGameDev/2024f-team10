@@ -13,7 +13,7 @@ size = Vector3(1.92557, 0.272232, 2.13767)
 [node name="Tower" type="StaticBody3D"]
 script = ExtResource("1_1jji6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["Tower"]]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0.991615, 0.0858327, 0.924894)
 mesh = ExtResource("2_g6b48")
 

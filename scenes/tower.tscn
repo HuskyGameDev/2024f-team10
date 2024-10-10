@@ -30,7 +30,7 @@ shape = SubResource("SphereShape3D_stqfw")
 
 [node name="BulletContainer" type="Node" parent="."]
 
-[node name="FireRate" type="Timer" parent="."]
+[node name="FireRate" type="Timer" parent="." groups=["Tower"]]
 
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]

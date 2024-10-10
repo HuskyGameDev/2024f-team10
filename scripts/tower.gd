@@ -14,6 +14,11 @@ func shoot() -> void:
 	get_node("BulletContainer").add_child(temp_bullet)
 	temp_bullet.global_position = $Tower2/Aim.global_position
 
+func take_damage(dmg : float):
+	health -= dmg
+	if health <= 0:
+		queue_free()
+
 func _process(delta):
 	if health <= 0:
 		queue_free()

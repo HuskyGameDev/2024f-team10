@@ -28,6 +28,7 @@ project/assembly_name="Offended Monsters"
 
 "Orc Troop"="Group for any orc (friendly) troop, used to differentiate between enemy troops and allied troops for tower targeting"
 "Tower Troop"="Troops that come from each tower and attack the friendly orc troops"
+Tower="Group for all the towers"
 
 [input]
 
