@@ -1,10 +1,15 @@
 extends StaticBody3D
 
 var bullet
+var health : int = 100
 var damage : int = 5
 var targets : Array = []
 var cur_tar : Unit
 var can_shoot : bool = true
+
+func _process(delta: float) -> void:
+	if health <= 0:
+		queue_free()
 
 func choose_target(targets : Array) -> void:
 	var temp_array : Array = targets
