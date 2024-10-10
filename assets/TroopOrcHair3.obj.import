@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d1a7a6axx3rnq"
+path="res://.godot/imported/TroopOrcHair3.obj-ab5dda15e97b80f3a8d9de91881ae8e4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/TroopOrcHair3.obj-ab5dda15e97b80f3a8d9de91881ae8e4.mesh"]
+
+source_file="res://assets/TroopOrcHair3.obj"
+dest_files=["res://.godot/imported/TroopOrcHair3.obj-ab5dda15e97b80f3a8d9de91881ae8e4.mesh", "res://.godot/imported/TroopOrcHair3.obj-ab5dda15e97b80f3a8d9de91881ae8e4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
