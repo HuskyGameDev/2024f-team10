@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://k2d072d5osso" path="res://assets/addons/godot-prototype-texture/PNG/grid_orange_512x512.png" id="2_0fwkx"]
 [ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/camera_rig.tscn" id="3_icaeh"]
 [ext_resource type="Texture2D" uid="uid://d3efjw3avj0g6" path="res://assets/addons/godot-prototype-texture/PNG/grid_blue_512x512.png" id="3_m5era"]
-[ext_resource type="PackedScene" uid="uid://bdggw1uagubs0" path="res://scenes/player.tscn" id="5_ee78g"]
+[ext_resource type="PackedScene" uid="uid://bdggw1uagubs0" path="res://scenes/orc.tscn" id="5_ee78g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pv8rd"]
 shader = ExtResource("1_2ae6i")

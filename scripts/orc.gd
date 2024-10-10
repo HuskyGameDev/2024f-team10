@@ -1,6 +1,5 @@
 extends Unit
 
-@onready var shape_cast_3d: ShapeCast3D = $ShapeCast3D
 @onready var attack_timer: Timer = $AttackTimer
 @onready var regen_timer: Timer = $RegenTimer
 
@@ -13,7 +12,6 @@ func _ready() -> void:
 	# setup the attack range:
 	var rangeDetector = SphereShape3D.new()
 	rangeDetector.radius = attackRange
-	shape_cast_3d.shape = rangeDetector
 	
 	attack_timer.wait_time = attackSpeed
 	
@@ -24,7 +22,7 @@ func _process(delta: float) -> void:
 		queue_free()
 	
 	if(canAttack):
-		damage(attackDmg)
+		attack(cur_tar)
 		attack_timer.start()
 		canAttack = false
 
@@ -45,3 +43,28 @@ func _on_regen_timer_timeout() -> void:
 
 func _on_attack_timer_timeout() -> void:
 	canAttack = true
+
+# enemy detection code
+var targets : Array = []
+var cur_tar : Unit
+var can_shoot : bool = true
+
+func choose_target(targets : Array) -> void:
+	var temp_array : Array = targets
+	var current_target : Unit = null
+	for i in temp_array:
+		if current_target == null:
+			current_target = i
+	cur_tar = current_target
+
+
+func _on_detection_range_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Tower Troop"):
+		targets.append(body)
+		choose_target(targets)
+
+
+func _on_detection_range_body_exited(body: Node3D) -> void:
+	if body.is_in_group("Tower Troop"):
+		targets.erase(body)
+		choose_target(targets)
