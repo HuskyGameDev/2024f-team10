@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://u4ny7wj0l2bq"]
+
+[ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="1_85gpk"]
+[ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="2_nbs5r"]
+[ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/camera_rig.tscn" id="3_g8mjx"]
+[ext_resource type="Texture2D" uid="uid://dpjw6mvvbgjtd" path="res://assets/addons/godot-prototype-texture/PNG/checker_black_512x512.png" id="4_h8qbj"]
+[ext_resource type="PackedScene" uid="uid://cb3d50k44xdr1" path="res://scenes/orc.tscn" id="5_wxqrf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pv8rd"]
+shader = ExtResource("2_nbs5r")
+
+[sub_resource type="Sky" id="Sky_xvoty"]
+sky_material = SubResource("ShaderMaterial_pv8rd")
+
+[sub_resource type="Environment" id="Environment_pia4t"]
+background_mode = 2
+sky = SubResource("Sky_xvoty")
+fog_light_energy = 2.18
+fog_density = 0.0305
+fog_sky_affect = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_70ykl"]
+size = Vector3(15, 1, 160)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyp8c"]
+albedo_texture = ExtResource("4_h8qbj")
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_vltjo"]
+material = SubResource("StandardMaterial3D_hyp8c")
+
+[node name="LoganTestScene" type="Node3D"]
+
+[node name="GUI" parent="." instance=ExtResource("1_85gpk")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pia4t")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.923237, 0.338713, -0.181403, 0, 0.47212, 0.881534, 0.384231, -0.813865, 0.435879, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CameraRig" parent="." instance=ExtResource("3_g8mjx")]
+edgeSize = 10
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_70ykl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 160, 0, 0, 0)
+mesh = SubResource("BoxMesh_vltjo")
+
+[node name="Orc" parent="." instance=ExtResource("5_wxqrf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.492722, 1.77596, 2.31458)
