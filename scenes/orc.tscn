@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb3d50k44xdr1"]
+[gd_scene load_steps=6 format=3 uid="uid://cb3d50k44xdr1"]
 
 [ext_resource type="Script" path="res://scripts/orc.gd" id="1_c4y2i"]
 [ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_rfewd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_skenk"]
+friction = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2ivwk"]
 
-[node name="Orc" type="CharacterBody3D" groups=["Orc Troop"]]
+[node name="Orc" type="RigidBody3D" groups=["Orc Troop"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_skenk")
 script = ExtResource("1_c4y2i")
 MAX_HEALTH = 100.0
 currentHealth = 100.0
@@ -21,7 +27,7 @@ attackRange = 1.2
 shape = SubResource("CapsuleShape3D_gfw2q")
 
 [node name="Body" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, -0.924978, 0)
+transform = Transform3D(-0.04, 0, -3.49691e-09, 0, 0.04, 0, 3.49691e-09, 0, -0.04, 0, -0.924978, 0)
 mesh = ExtResource("2_rfewd")
 
 [node name="DetectionRange" type="Area3D" parent="." groups=["Tower Troop"]]

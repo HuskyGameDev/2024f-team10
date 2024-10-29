@@ -1,6 +1,6 @@
 # Being Worked on by Logan Cole
 class_name Unit
-extends CharacterBody3D
+extends RigidBody3D
 
 
 
