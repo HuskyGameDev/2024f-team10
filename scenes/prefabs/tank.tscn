@@ -1,41 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb3d50k44xdr1"]
+[gd_scene load_steps=6 format=3 uid="uid://bns0a3tv7bj8x"]
 
-[ext_resource type="Script" path="res://scripts/orc.gd" id="1_c4y2i"]
-[ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_rfewd"]
+[ext_resource type="Script" path="res://scripts/orc.gd" id="1_c1imw"]
+[ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_so5lq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_skenk"]
 friction = 0.0
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6mhaa"]
+radius = 1.0
+height = 3.0
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_x23nt"]
-radius = 0.2
+[sub_resource type="SphereShape3D" id="SphereShape3D_v0v6o"]
 
-[node name="Orc" type="RigidBody3D" groups=["Orc Troop"]]
+[node name="Tank" type="RigidBody3D" groups=["Orc Troop"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_skenk")
-script = ExtResource("1_c4y2i")
-MAX_HEALTH = 100.0
-currentHealth = 100.0
-healthRegen = 1.0
-attackDmg = 2.0
-attackSpeed = 0.6
-attackRange = 0.2
+script = ExtResource("1_c1imw")
+MAX_HEALTH = 500.0
+currentHealth = 500.0
+healthRegen = 3.0
+attackDmg = 10.0
+attackSpeed = 2.0
+attackRange = 0.5
 
 [node name="Hitbox" type="CollisionShape3D" parent="." groups=["Orc Troop"]]
-shape = SubResource("CapsuleShape3D_gfw2q")
+shape = SubResource("CapsuleShape3D_6mhaa")
 
 [node name="Body" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.04, 0, -3.49691e-09, 0, 0.04, 0, 3.49691e-09, 0, -0.04, 0, -0.924978, 0)
-mesh = ExtResource("2_rfewd")
+transform = Transform3D(-0.0650603, 0, -6.32913e-09, 0, 0.0694266, 0, 5.68775e-09, 0, -0.0723969, 0, -1.45051, 0)
+mesh = ExtResource("2_so5lq")
 
 [node name="DetectionRange" type="Area3D" parent="." groups=["Tower Troop"]]
 
 [node name="Range" type="CollisionShape3D" parent="DetectionRange"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-shape = SubResource("SphereShape3D_x23nt")
+shape = SubResource("SphereShape3D_v0v6o")
 
 [node name="RegenTimer" type="Timer" parent="."]
 wait_time = 0.1

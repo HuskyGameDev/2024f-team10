@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://u4ny7wj0l2bq"]
+[gd_scene load_steps=17 format=3 uid="uid://u4ny7wj0l2bq"]
 
 [ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="1_al8bw"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="2_taeug"]
 [ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/prefabs/camera_rig.tscn" id="3_vf2uy"]
 [ext_resource type="Texture2D" uid="uid://dpjw6mvvbgjtd" path="res://assets/addons/godot-prototype-texture/PNG/checker_black_512x512.png" id="4_ojqpt"]
 [ext_resource type="PackedScene" uid="uid://cb3d50k44xdr1" path="res://scenes/prefabs/orc.tscn" id="5_mteyf"]
+[ext_resource type="PackedScene" uid="uid://cxswqte6s5w8i" path="res://scenes/prefabs/sword_orc.tscn" id="5_t053h"]
+[ext_resource type="PackedScene" uid="uid://bmofeqscvw4an" path="res://scenes/prefabs/tower.tscn" id="6_6ixqj"]
+[ext_resource type="PackedScene" uid="uid://dcrv187u8p7en" path="res://scenes/prefabs/archer.tscn" id="6_g21hn"]
+[ext_resource type="PackedScene" uid="uid://bns0a3tv7bj8x" path="res://scenes/prefabs/tank.tscn" id="6_nmt2h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pv8rd"]
 shader = ExtResource("2_taeug")
@@ -20,7 +24,7 @@ fog_density = 0.0305
 fog_sky_affect = 0.4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_70ykl"]
-size = Vector3(15, 1, 160)
+size = Vector3(50, 1, 115)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyp8c"]
 albedo_texture = ExtResource("4_ojqpt")
@@ -31,6 +35,8 @@ uv2_world_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_vltjo"]
 material = SubResource("StandardMaterial3D_hyp8c")
+
+[sub_resource type="SphereMesh" id="SphereMesh_d2lvj"]
 
 [node name="LoganTestScene" type="Node3D"]
 
@@ -44,6 +50,7 @@ transform = Transform3D(0.923237, 0.338713, -0.181403, 0, 0.47212, 0.881534, 0.3
 shadow_enabled = true
 
 [node name="CameraRig" parent="." instance=ExtResource("3_vf2uy")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 1.5, 37.7046)
 edgeSize = 10
 
 [node name="Ground" type="StaticBody3D" parent="."]
@@ -52,8 +59,52 @@ edgeSize = 10
 shape = SubResource("BoxShape3D_70ykl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 160, 0, 0, 0)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 115, 0, 0, 0)
 mesh = SubResource("BoxMesh_vltjo")
 
-[node name="Orc3" parent="." instance=ExtResource("5_mteyf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47545, 0)
+[node name="SwordOrc" parent="Ground" instance=ExtResource("5_t053h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3886, 1.5, 38.001)
+
+[node name="Tank" parent="Ground" instance=ExtResource("6_nmt2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5968, 2.21787, 23.7725)
+
+[node name="Orc" parent="Ground" instance=ExtResource("5_mteyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7955, 1.5, 16.7042)
+
+[node name="Tower2" parent="." instance=ExtResource("6_6ixqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.41626, 0.5, 40.3864)
+
+[node name="Tower3" parent="." instance=ExtResource("6_6ixqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6214, 0.692537, 34.4691)
+
+[node name="Tower4" parent="." instance=ExtResource("6_6ixqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1088, 0.645359, 19.1374)
+
+[node name="Tower5" parent="." instance=ExtResource("6_6ixqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2433, 0.704789, 14.0915)
+
+[node name="Tower6" parent="." instance=ExtResource("6_6ixqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8008, 0.929531, -2.32238)
+
+[node name="Tower7" parent="." instance=ExtResource("6_6ixqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4415, 0.723546, -10.4002)
+
+[node name="Tower8" parent="." instance=ExtResource("6_6ixqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9892, 1.90361, -14.2705)
+
+[node name="Tower9" parent="." instance=ExtResource("6_6ixqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.45556, 0.5, -31.9216)
+
+[node name="Tower10" parent="." instance=ExtResource("6_6ixqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.77352, 0.5, -30.4997)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0690443, 0, 8.96905, 0, 3.81052, 0, -5.80026, 0, -0.106765, -0.534133, 2.47291, 52.767)
+mesh = SubResource("SphereMesh_d2lvj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0664474, 0, 37.309, 0, 38.4449, 0, -5.5821, 0, -0.444113, -0.534133, 2.47291, -52.2187)
+mesh = SubResource("SphereMesh_d2lvj")
+
+[node name="Archer" parent="." instance=ExtResource("6_g21hn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63278, 2.4976, 47.8903)
