@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://fhjk3s4cji85"]
+
+[ext_resource type="Script" path="res://scripts/orc.gd" id="1_c4y2i"]
+[ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_rfewd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2ivwk"]
+
+[node name="Orc" type="CharacterBody3D" groups=["Orc Troop"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_c4y2i")
+MAX_HEALTH = 100.0
+currentHealth = 100.0
+healthRegen = 1.0
+attackDmg = 10.0
+attackSpeed = 0.6
+attackRange = 1.2
+
+[node name="Hitbox" type="CollisionShape3D" parent="." groups=["Orc Troop"]]
+shape = SubResource("CapsuleShape3D_gfw2q")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, -0.924978, 0)
+mesh = ExtResource("2_rfewd")
+
+[node name="DetectionRange" type="Area3D" parent="." groups=["Tower Troop"]]
+
+[node name="Range" type="CollisionShape3D" parent="DetectionRange"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("SphereShape3D_2ivwk")
+
+[node name="RegenTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
+[connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
