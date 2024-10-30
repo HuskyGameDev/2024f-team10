@@ -1,41 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb3d50k44xdr1"]
+[gd_scene load_steps=8 format=3 uid="uid://dcrv187u8p7en"]
 
-[ext_resource type="Script" path="res://scripts/orc.gd" id="1_c4y2i"]
-[ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_rfewd"]
+[ext_resource type="Script" path="res://scripts/orc.gd" id="1_mt1me"]
+[ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_8yg14"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_skenk"]
 friction = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_x23nt"]
-radius = 0.2
+[sub_resource type="SphereShape3D" id="SphereShape3D_2lvlg"]
+radius = 0.8
 
-[node name="Orc" type="RigidBody3D" groups=["Orc Troop"]]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4k5xi"]
+albedo_color = Color(0.18, 0.054, 0.0561, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1qxb7"]
+material = SubResource("StandardMaterial3D_4k5xi")
+
+[node name="Archer" type="RigidBody3D" groups=["Orc Troop"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_skenk")
-script = ExtResource("1_c4y2i")
-MAX_HEALTH = 100.0
-currentHealth = 100.0
-healthRegen = 1.0
-attackDmg = 2.0
-attackSpeed = 0.6
-attackRange = 0.2
+script = ExtResource("1_mt1me")
+MAX_HEALTH = 50.0
+currentHealth = 50.0
+attackDmg = 4.0
+attackSpeed = 0.3
+attackRange = 0.8
 
 [node name="Hitbox" type="CollisionShape3D" parent="." groups=["Orc Troop"]]
 shape = SubResource("CapsuleShape3D_gfw2q")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.04, 0, -3.49691e-09, 0, 0.04, 0, 3.49691e-09, 0, -0.04, 0, -0.924978, 0)
-mesh = ExtResource("2_rfewd")
+mesh = ExtResource("2_8yg14")
 
 [node name="DetectionRange" type="Area3D" parent="." groups=["Tower Troop"]]
 
 [node name="Range" type="CollisionShape3D" parent="DetectionRange"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-shape = SubResource("SphereShape3D_x23nt")
+shape = SubResource("SphereShape3D_2lvlg")
 
 [node name="RegenTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -44,6 +49,10 @@ autostart = true
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.326552, 0, 0, 0, 0.197138, 0, 0, 0, 0.39043, 0, 0.798064, 0)
+mesh = SubResource("BoxMesh_1qxb7")
 
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]

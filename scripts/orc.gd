@@ -2,6 +2,7 @@ extends Unit
 
 @onready var attack_timer: Timer = $AttackTimer
 @onready var regen_timer: Timer = $RegenTimer
+@onready var range: CollisionShape3D = $DetectionRange/Range
 
 var canAttack : bool
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 	
 	attack_timer.wait_time = attackSpeed
 	
+	range.shape = rangeDetector
 
 func _process(delta: float) -> void:
 	# if health is zero, the unit dies
@@ -40,7 +42,6 @@ func damage(amount : float):
 func _on_regen_timer_timeout() -> void:
 	if currentHealth < MAX_HEALTH:
 		currentHealth = clamp(currentHealth + (healthRegen * regen_timer.wait_time), 0, MAX_HEALTH)
-		print(currentHealth)
 
 
 func _on_attack_timer_timeout() -> void:
@@ -61,13 +62,13 @@ func choose_target(targets : Array) -> void:
 
 
 func _on_detection_range_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Tower Troop"):
+	if (body.is_in_group("Tower Troop") || body.is_in_group("Tower")):
 		targets.append(body)
 		choose_target(targets)
 
 
 func _on_detection_range_body_exited(body: Node3D) -> void:
-	if body.is_in_group("Tower Troop"):
+	if (body.is_in_group("Tower Troop") || body.is_in_group("Tower")):
 		targets.erase(body)
 		choose_target(targets)
 
