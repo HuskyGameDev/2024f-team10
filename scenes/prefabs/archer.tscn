@@ -1,10 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcrv187u8p7en"]
+[gd_scene load_steps=7 format=3 uid="uid://dcrv187u8p7en"]
 
 [ext_resource type="Script" path="res://scripts/orc.gd" id="1_mt1me"]
 [ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_8yg14"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_skenk"]
-friction = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]
 
@@ -17,11 +14,10 @@ albedo_color = Color(0.18, 0.054, 0.0561, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_1qxb7"]
 material = SubResource("StandardMaterial3D_4k5xi")
 
-[node name="Archer" type="RigidBody3D" groups=["Orc Troop"]]
+[node name="Archer" type="CharacterBody3D" groups=["Orc Troop"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-physics_material_override = SubResource("PhysicsMaterial_skenk")
 script = ExtResource("1_mt1me")
 MAX_HEALTH = 50.0
 currentHealth = 50.0

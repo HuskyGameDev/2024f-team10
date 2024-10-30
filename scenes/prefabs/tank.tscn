@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bns0a3tv7bj8x"]
+[gd_scene load_steps=5 format=3 uid="uid://bns0a3tv7bj8x"]
 
 [ext_resource type="Script" path="res://scripts/orc.gd" id="1_c1imw"]
 [ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_so5lq"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_skenk"]
-friction = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6mhaa"]
 radius = 1.0
@@ -12,11 +9,10 @@ height = 3.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v0v6o"]
 
-[node name="Tank" type="RigidBody3D" groups=["Orc Troop"]]
+[node name="Tank" type="CharacterBody3D" groups=["Orc Troop"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-physics_material_override = SubResource("PhysicsMaterial_skenk")
 script = ExtResource("1_c1imw")
 MAX_HEALTH = 500.0
 currentHealth = 500.0
