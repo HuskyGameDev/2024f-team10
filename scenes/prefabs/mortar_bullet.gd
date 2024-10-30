@@ -1,8 +1,10 @@
 extends CharacterBody3D
 
 var target : Unit
-var speed : int = 20
+var speed : int = 5
 var damage : int = 5
+var splashDamage : int = 2
+var splashTargets : Array = []
 
 func _physics_process(delta):
 	if is_instance_valid(target):
@@ -13,6 +15,13 @@ func _physics_process(delta):
 		queue_free()
 
 func _on_collision_body_entered(body):
+	for i in splashTargets:
+		i.damage(splashDamage)
 	if body.is_in_group("Orc Troop"):
 		body.damage(damage)
 		queue_free()
+
+
+func _on_splash_damage_body_entered(body):
+	if body.is_in_group("Orc Troop"):
+		splashTargets.append(body)

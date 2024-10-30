@@ -4,13 +4,13 @@
 [ext_resource type="ArrayMesh" uid="uid://v0ilfu1sriju" path="res://assets/tower1.obj" id="2_g6b48"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_neth3"]
-size = Vector3(1.92557, 0.272232, 2.13767)
+size = Vector3(1.92557, 2, 2.13767)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_stqfw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_i5tp8"]
 
-[node name="Tower" type="StaticBody3D" groups=["Tower"]]
+[node name="Mortar_Tower" type="StaticBody3D" groups=["Tower"]]
 script = ExtResource("1_1jji6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -21,7 +21,7 @@ mesh = ExtResource("2_g6b48")
 transform = Transform3D(5.55556, 0, 0, 0, 5.55556, 0, 0, 0, 5.55556, -5.50897, 30.9372, -5.09252)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00154155, -0.00910187, -0.00619654)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.066847, 0.854782, -0.00619654)
 shape = SubResource("BoxShape3D_neth3")
 
 [node name="DetectionRange" type="Area3D" parent="."]
@@ -43,3 +43,4 @@ shape = SubResource("SphereShape3D_i5tp8")
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
 [connection signal="body_entered" from="TooCloseRange" to="." method="_on_too_close_range_body_entered"]
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

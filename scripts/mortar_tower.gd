@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-var bullet : PackedScene = preload("res://scenes/prefabs/bullet.tscn")
+var bullet : PackedScene = preload("res://scenes/prefabs/mortar_bullet.tscn")
 var health : int = 100
 var damage : int = 5
 var targets : Array = []
@@ -20,8 +20,6 @@ func take_damage(dmg : float):
 		queue_free()
 
 func _process(delta):
-	if health <= 0:
-		queue_free()
 	if is_instance_valid(cur_tar):
 		if can_shoot:
 			shoot()
@@ -53,3 +51,6 @@ func _on_too_close_range_body_entered(body):
 	if body.is_in_group("Orc Troop"):
 		targets.erase(body)
 		choose_target(targets)
+
+func _on_fire_rate_timeout() -> void:
+	can_shoot = true

@@ -20,8 +20,6 @@ func take_damage(dmg : float):
 		queue_free()
 
 func _process(delta):
-	if health <= 0:
-		queue_free()
 	if is_instance_valid(cur_tar):
 		if can_shoot:
 			shoot()
