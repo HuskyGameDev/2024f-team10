@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://drnxol7kgl5oi"]
+
+[ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="1_pduth"]
+[ext_resource type="Script" path="res://scenes/prefabs/orc_test.gd" id="1_syd8t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fd5te"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_guxbm"]
+radius = 0.2
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_syd8t")
+
+[node name="Hitbox" type="CollisionShape3D" parent="." groups=["Orc Troop"]]
+shape = SubResource("CapsuleShape3D_fd5te")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.04, 0, -3.49691e-09, 0, 0.04, 0, 3.49691e-09, 0, -0.04, 0, -0.924978, 0)
+mesh = ExtResource("1_pduth")
+
+[node name="DetectionRange" type="Area3D" parent="." groups=["Tower Troop"]]
+
+[node name="Range" type="CollisionShape3D" parent="DetectionRange"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("SphereShape3D_guxbm")
+
+[node name="RegenTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

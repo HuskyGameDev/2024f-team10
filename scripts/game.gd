@@ -20,16 +20,25 @@ func _on_mob_spawn(troopId, spawnCount):
 		
 func mob_spawn(troopId):
 	var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
+	
+	mob_spawn_location.progress_ratio = randf()
+	var spawn_position = mob_spawn_location.position
+	
+	var towers = get_tree().get_nodes_in_group("test_level_towers")
+	print(towers)
+	print(towers[1].position)
+	towers.sort()
+	
 	match troopId:
 		1:
-			print("Orc Spawn")
+			print("Orc Spawn: " + str(spawn_position))
 			var orc = Orc2.instantiate()
 			# Set a unique position for each mob by randomizing the progress ratio
-			mob_spawn_location.progress_ratio = randf()
-			var spawn_position = mob_spawn_location.position
+			
 			# Initialize mob with its unique spawn position
-			orc.initialize(spawn_position, 270.0)
+			orc.initialize(spawn_position, towers[1].position)
 			# Add mob to the scene
+			print("Orc Position" + str(orc.position))
 			add_child(orc)
 			pass
 			
