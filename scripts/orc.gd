@@ -17,13 +17,11 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	apply_force(-transform.basis.z * 14 * delta)
 	# if health is zero, the unit dies
 	if (currentHealth <= 0):
 		queue_free()
 	
 	if(canAttack && cur_tar != null):
-		look_at(cur_tar.position)
 		attack(cur_tar)
 		attack_timer.start()
 		canAttack = false
@@ -32,7 +30,7 @@ func _process(delta: float) -> void:
 
 
 func attack(target : StaticBody3D):
-	if (target.is_in_group("Tower Troop")):
+	if (target.is_in_group("Tower Troop") || target.is_in_group("Tower")):
 		target.take_damage(attackDmg)
 		print(target.to_string() + " attacked")
 func damage(amount : float):
