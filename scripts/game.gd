@@ -28,7 +28,7 @@ func mob_spawn(troopId):
 			mob_spawn_location.progress_ratio = randf()
 			var spawn_position = mob_spawn_location.position
 			# Initialize mob with its unique spawn position
-			orc.initialize(spawn_position)
+			orc.initialize(spawn_position, 270.0)
 			# Add mob to the scene
 			add_child(orc)
 			pass

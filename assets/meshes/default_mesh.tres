@@ -1,0 +1,13 @@
+[gd_resource type="BoxMesh" load_steps=3 format=3 uid="uid://biwpkm4jb2t3t"]
+
+[ext_resource type="Texture2D" uid="uid://dpjw6mvvbgjtd" path="res://assets/addons/godot-prototype-texture/PNG/checker_black_512x512.png" id="1_dfuwv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyp8c"]
+albedo_texture = ExtResource("1_dfuwv")
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[resource]
+material = SubResource("StandardMaterial3D_hyp8c")

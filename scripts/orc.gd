@@ -73,5 +73,8 @@ func _on_detection_range_body_exited(body: Node3D) -> void:
 		targets.erase(body)
 		choose_target(targets)
 
-func initialize(start_position):
+func initialize(start_position, yRotation):
+	var vec3 = Vector3(0, yRotation, 0)
+	set_rotation_degrees(vec3)
+	print(str(get_rotation()))
 	set_position(start_position)
