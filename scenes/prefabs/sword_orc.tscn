@@ -1,14 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://cxswqte6s5w8i"]
 
-[ext_resource type="Script" path="res://scripts/orc.gd" id="1_iqq6v"]
-[ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_02ke6"]
+[ext_resource type="Script" path="res://scripts/melee_orc.gd" id="1_iqq6v"]
+[ext_resource type="ArrayMesh" uid="uid://lk3wykny0723" path="res://assets/TroopOrcHair1.obj" id="2_q6r0l"]
+[ext_resource type="ArrayMesh" uid="uid://lgh52842j456" path="res://assets/sword.obj" id="3_c7v7d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2ivwk"]
 radius = 0.3
-
-[sub_resource type="BoxMesh" id="BoxMesh_cls77"]
 
 [node name="SwordOrc" type="CharacterBody3D" groups=["Orc Troop"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -27,7 +26,7 @@ shape = SubResource("CapsuleShape3D_gfw2q")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.04, 0, -3.49691e-09, 0, 0.04, 0, 3.49691e-09, 0, -0.04, 0, -0.924978, 0)
-mesh = ExtResource("2_02ke6")
+mesh = ExtResource("2_q6r0l")
 
 [node name="DetectionRange" type="Area3D" parent="." groups=["Tower Troop"]]
 
@@ -43,9 +42,9 @@ autostart = true
 one_shot = true
 autostart = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.168633, 0, 0, 0, 0.140546, 0, 0, 0, 1, 0.488199, -0.285746, -0.521278)
-mesh = SubResource("BoxMesh_cls77")
+[node name="Sword" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.04, 0, 0, 0, 0.0231621, 0.0326116, 0, -0.0326116, 0.0231621, 0.580005, -0.531773, 0.253125)
+mesh = ExtResource("3_c7v7d")
 
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]

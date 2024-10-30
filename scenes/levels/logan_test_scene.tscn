@@ -107,7 +107,7 @@ transform = Transform3D(-0.0664474, 0, 37.309, 0, 38.4449, 0, -5.5821, 0, -0.444
 mesh = SubResource("SphereMesh_d2lvj")
 
 [node name="Archer" parent="." instance=ExtResource("6_g21hn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63278, 2.4976, 47.8903)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63278, 1.4229, 47.8903)
 
 [node name="Tank" parent="." instance=ExtResource("6_nmt2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7981, 2.66636, -10.3925)

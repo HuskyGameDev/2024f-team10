@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cb3d50k44xdr1"]
 
-[ext_resource type="Script" path="res://scripts/orc.gd" id="1_c4y2i"]
+[ext_resource type="Script" path="res://scripts/melee_orc.gd" id="1_c4y2i"]
 [ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_rfewd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]

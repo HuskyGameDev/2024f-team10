@@ -4,6 +4,8 @@ extends Unit
 @onready var regen_timer: Timer = $RegenTimer
 @onready var range: CollisionShape3D = $DetectionRange/Range
 
+var arrow : PackedScene = preload("res://scenes/prefabs/arrow.tscn")
+
 var canAttack : bool
 
 # Called when the node enters the scene tree for the first time.
@@ -18,25 +20,27 @@ func _ready() -> void:
 	
 	range.shape = rangeDetector
 
+func shoot() -> void:
+	var temp_arrow : CharacterBody3D = arrow.instantiate()
+	temp_arrow.target = cur_tar
+	temp_arrow.damage = attackDmg
+	get_node("ArrowContainer").add_child(temp_arrow)
+	temp_arrow.global_position = $Aim.global_position
+
 func _process(delta: float) -> void:
 	# if health is zero, the unit dies
 	if (currentHealth <= 0):
 		queue_free()
 	
-	if(canAttack && cur_tar != null):
-		attack(cur_tar)
-		attack_timer.start()
-		canAttack = false
+	if is_instance_valid(cur_tar):
+		if canAttack:
+			shoot()
+			canAttack = false
+			attack_timer.start()
+	else:
+		for i in get_node("ArrowContainer").get_child_count():
+			get_node("ArrowContainer").get_child(i).queue_free()
 
-
-
-
-func attack(target : StaticBody3D):
-	if (target.is_in_group("Tower Troop") || target.is_in_group("Tower")):
-		target.take_damage(attackDmg)
-		print(target.to_string() + " attacked")
-func damage(amount : float):
-	currentHealth -= amount
 
 # called every 0.1 seconds
 func _on_regen_timer_timeout() -> void:

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://fweacobd4tl0"]
+
+[ext_resource type="Script" path="res://arrow.gd" id="1_uwrcr"]
+[ext_resource type="ArrayMesh" uid="uid://cpjjq27s3j81l" path="res://assets/arrow.obj" id="2_oqx4u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7cs27"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ou1m"]
+
+[node name="Arrow" type="CharacterBody3D"]
+script = ExtResource("1_uwrcr")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(3.82137e-17, 8.74228e-10, -0.02, 0.02, -8.74228e-10, 0, -8.74228e-10, -0.02, -8.74228e-10, 0.00546272, 0, 0.170512)
+mesh = ExtResource("2_oqx4u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_7cs27")
+
+[node name="Collision" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("BoxShape3D_7ou1m")
+
+[connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]

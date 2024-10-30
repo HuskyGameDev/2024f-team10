@@ -1,36 +1,32 @@
 [gd_scene load_steps=7 format=3 uid="uid://dcrv187u8p7en"]
 
-[ext_resource type="Script" path="res://scripts/orc.gd" id="1_mt1me"]
-[ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_8yg14"]
+[ext_resource type="Script" path="res://scripts/archer.gd" id="1_mtf6k"]
+[ext_resource type="ArrayMesh" uid="uid://x03i1sxsocoa" path="res://assets/TroopOrcHair2.obj" id="2_c146u"]
+[ext_resource type="ArrayMesh" uid="uid://42yhdxsvs44j" path="res://assets/bow.obj" id="3_e1xt1"]
+[ext_resource type="ArrayMesh" uid="uid://blosm14cyb38j" path="res://assets/quiver.obj" id="4_xvvon"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2lvlg"]
 radius = 0.8
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4k5xi"]
-albedo_color = Color(0.18, 0.054, 0.0561, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_1qxb7"]
-material = SubResource("StandardMaterial3D_4k5xi")
-
 [node name="Archer" type="CharacterBody3D" groups=["Orc Troop"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-script = ExtResource("1_mt1me")
+script = ExtResource("1_mtf6k")
 MAX_HEALTH = 50.0
 currentHealth = 50.0
-attackDmg = 4.0
-attackSpeed = 0.3
-attackRange = 0.8
+attackDmg = 5.0
+attackSpeed = 1.8
+attackRange = 0.7
 
 [node name="Hitbox" type="CollisionShape3D" parent="." groups=["Orc Troop"]]
 shape = SubResource("CapsuleShape3D_gfw2q")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.04, 0, -3.49691e-09, 0, 0.04, 0, 3.49691e-09, 0, -0.04, 0, -0.924978, 0)
-mesh = ExtResource("2_8yg14")
+mesh = ExtResource("2_c146u")
 
 [node name="DetectionRange" type="Area3D" parent="." groups=["Tower Troop"]]
 
@@ -46,9 +42,18 @@ autostart = true
 one_shot = true
 autostart = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.326552, 0, 0, 0, 0.197138, 0, 0, 0, 0.39043, 0, 0.798064, 0)
-mesh = SubResource("BoxMesh_1qxb7")
+[node name="ArrowContainer" type="Node" parent="."]
+
+[node name="Aim" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.606323, -0.268551, -0.19638)
+
+[node name="Bow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.015, 7.85959e-18, -1.31134e-09, 1.21645e-09, 0.00560235, -0.0139145, 4.89773e-10, -0.0139145, -0.00560235, 0.468541, -0.370567, 1.0464)
+mesh = ExtResource("3_e1xt1")
+
+[node name="Quiver" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0.00491193, -0.585566, 0.620339)
+mesh = ExtResource("4_xvvon")
 
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
