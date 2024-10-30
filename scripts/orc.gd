@@ -72,3 +72,6 @@ func _on_detection_range_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Tower Troop"):
 		targets.erase(body)
 		choose_target(targets)
+
+func initialize(start_position):
+	set_position(start_position)

@@ -1,13 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://cq74dp3td8yax"]
+[gd_scene load_steps=25 format=3 uid="uid://cq74dp3td8yax"]
 
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="1_2ae6i"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_74oon"]
 [ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="1_ilh3k"]
 [ext_resource type="Texture2D" uid="uid://dpjw6mvvbgjtd" path="res://assets/addons/godot-prototype-texture/PNG/checker_black_512x512.png" id="1_rswg0"]
 [ext_resource type="Texture2D" uid="uid://k2d072d5osso" path="res://assets/addons/godot-prototype-texture/PNG/grid_orange_512x512.png" id="2_0fwkx"]
-[ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/camera_rig.tscn" id="3_icaeh"]
+[ext_resource type="PackedScene" path="res://scenes/camera_rig.tscn" id="3_icaeh"]
 [ext_resource type="Texture2D" uid="uid://d3efjw3avj0g6" path="res://assets/addons/godot-prototype-texture/PNG/grid_blue_512x512.png" id="3_m5era"]
 [ext_resource type="PackedScene" uid="uid://cb3d50k44xdr1" path="res://scenes/orc.tscn" id="7_7py8g"]
 [ext_resource type="PackedScene" uid="uid://bmofeqscvw4an" path="res://scenes/tower.tscn" id="8_od5a4"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_871wk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pv8rd"]
 shader = ExtResource("1_2ae6i")
@@ -64,9 +67,27 @@ uv2_world_triplanar = true
 [sub_resource type="BoxMesh" id="BoxMesh_r37bp"]
 material = SubResource("StandardMaterial3D_c3r15")
 
+[sub_resource type="Curve3D" id="Curve3D_4dbxa"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.876, 1, -3.94, 0, 0, 0, 0, 0, 0, -1.676, 1, 4.433, 0, 0, 0, 0, 0, 0, 3.958, 1, 3.946, 0, 0, 0, 0, 0, 0, 4.309, 1, -4.533, 0, 0, 0, 0, 0, 0, -0.876, 1, -3.94),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="Game" type="Node3D"]
+script = ExtResource("1_74oon")
+Orc2 = ExtResource("7_7py8g")
 
 [node name="GUI" parent="." instance=ExtResource("1_ilh3k")]
+
+[node name="1XButton" parent="GUI/Multiplier" index="1"]
+button_group = SubResource("ButtonGroup_871wk")
+
+[node name="5xButton" parent="GUI/Multiplier" index="2"]
+button_group = SubResource("ButtonGroup_871wk")
+
+[node name="10xButton" parent="GUI/Multiplier" index="3"]
+button_group = SubResource("ButtonGroup_871wk")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pia4t")
@@ -134,3 +155,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.506827, 3.3918, 3)
 
 [node name="Tower2" parent="." instance=ExtResource("8_od5a4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12233, 0.397089, 3)
+
+[node name="SpawnPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_4dbxa")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
+transform = Transform3D(-0.995459, 0, 0.0951112, 0, 0.999999, 0, -0.0951112, 0, -0.995459, -0.876, 1, -3.94)
+
+[connection signal="spawnTroop" from="GUI/UnitBar" to="." method="_on_mob_spawn"]
+
+[editable path="GUI"]
+[editable path="GUI/emeraldCounter"]
+[editable path="GUI/Multiplier"]
+[editable path="GUI/UnitBar"]

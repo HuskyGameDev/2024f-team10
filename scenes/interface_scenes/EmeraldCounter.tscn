@@ -36,4 +36,15 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="notEnoughEmeralds" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.26891
+anchor_right = 6.68067
+anchor_bottom = 0.614865
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [connection signal="timeout" from="Timer" to="." method="passiveEmerald"]
