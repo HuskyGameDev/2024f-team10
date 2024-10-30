@@ -18,7 +18,7 @@ transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0.991615, 0.0858327,
 mesh = ExtResource("2_g6b48")
 
 [node name="Aim" type="Marker3D" parent="MeshInstance3D"]
-transform = Transform3D(5.55556, 0, 0, 0, 5.55556, 0, 0, 0, 5.55556, -5.50897, 39.697, -5.09252)
+transform = Transform3D(5.55556, 0, 0, 0, 5.55556, 0, 0, 0, 5.55556, -5.50897, 42.8729, -5.09252)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.066847, 0.854782, -0.00619654)

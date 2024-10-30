@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d02eu35fojsws"]
+[gd_scene load_steps=4 format=3 uid="uid://d02eu35fojsws"]
 
+[ext_resource type="Script" path="res://scripts/interface_scripts/resource_tower.gd" id="1_32dwy"]
 [ext_resource type="ArrayMesh" uid="uid://v0ilfu1sriju" path="res://assets/tower1.obj" id="1_dhi14"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8md3i"]
 size = Vector3(1.85329, 1.68311, 2.02618)
 
 [node name="ResourceTower" type="StaticBody3D" groups=["Tower"]]
+script = ExtResource("1_32dwy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018898, 0.872803, 0.000213623)

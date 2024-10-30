@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cct7fajqayt83"]
 
-[ext_resource type="Script" path="res://scenes/prefabs/mortar_bullet.gd" id="1_dects"]
+[ext_resource type="Script" path="res://scripts/interface_scripts/mortar_bullet.gd" id="1_dects"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_j3kme"]
 
