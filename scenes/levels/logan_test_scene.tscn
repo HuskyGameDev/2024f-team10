@@ -84,13 +84,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1088, 0.645359, 19.1374)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2433, 0.704789, 14.0915)
 
 [node name="Tower6" parent="." instance=ExtResource("6_6ixqj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8008, 0.929531, -2.32238)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8008, 0.929531, -6.45332)
 
 [node name="Tower7" parent="." instance=ExtResource("6_6ixqj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4415, 0.723546, -10.4002)
 
 [node name="Tower8" parent="." instance=ExtResource("6_6ixqj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9892, 1.90361, -14.2705)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9892, 0.538711, -14.2705)
 
 [node name="Tower9" parent="." instance=ExtResource("6_6ixqj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.45556, 0.5, -31.9216)
@@ -108,3 +108,6 @@ mesh = SubResource("SphereMesh_d2lvj")
 
 [node name="Archer" parent="." instance=ExtResource("6_g21hn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63278, 2.4976, 47.8903)
+
+[node name="Tank" parent="." instance=ExtResource("6_nmt2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7981, 2.66636, -10.3925)
