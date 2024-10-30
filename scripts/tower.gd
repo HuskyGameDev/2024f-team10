@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-var bullet : PackedScene = preload("res://scenes/bullet.tscn")
+var bullet : PackedScene = preload("res://scenes/prefabs/bullet.tscn")
 var health : int = 100
 var damage : int = 5
 var targets : Array = []
