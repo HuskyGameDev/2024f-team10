@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 var target : Unit
 var speed : int = 5
-var damage : int = 5
-var splashDamage : int = 2
+var damage : int = 10
+var splashDamage : int = 4
 var splashTargets : Array = []
 
 func _physics_process(delta):

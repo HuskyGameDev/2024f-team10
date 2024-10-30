@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://boclj8ju33w3u"]
+[gd_scene load_steps=26 format=3 uid="uid://boclj8ju33w3u"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_eoxwm"]
 [ext_resource type="PackedScene" uid="uid://cb3d50k44xdr1" path="res://scenes/prefabs/orc.tscn" id="2_ja5q3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://k2d072d5osso" path="res://assets/addons/godot-prototype-texture/PNG/grid_orange_512x512.png" id="7_avqi2"]
 [ext_resource type="Texture2D" uid="uid://d3efjw3avj0g6" path="res://assets/addons/godot-prototype-texture/PNG/grid_blue_512x512.png" id="8_qk0yu"]
 [ext_resource type="PackedScene" uid="uid://c2vcf2wfbkhy4" path="res://scenes/prefabs/mortar_tower.tscn" id="9_2vr45"]
+[ext_resource type="PackedScene" uid="uid://bmofeqscvw4an" path="res://scenes/prefabs/tower.tscn" id="10_a4acb"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_871wk"]
 
@@ -228,6 +229,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.560698, 1.5, 2.143)
 
 [node name="Orc4" parent="." instance=ExtResource("2_ja5q3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51267, 1.5, 3.29226)
+
+[node name="Tower" parent="." instance=ExtResource("10_a4acb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70624, 0.5, 3.01915)
 
 [connection signal="spawnTroop" from="GUI/UnitBar" to="." method="_on_mob_spawn"]
 

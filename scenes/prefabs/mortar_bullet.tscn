@@ -31,6 +31,7 @@ shape = SubResource("BoxShape3D_7ou1m")
 [node name="SplashDamage" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SplashDamage"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 shape = SubResource("SphereShape3D_yexoy")
 
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]
