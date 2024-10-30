@@ -10,10 +10,10 @@ size = Vector3(1.92557, 0.272232, 2.13767)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_i5tp8"]
 
-[node name="Tower" type="StaticBody3D"]
+[node name="Tower" type="StaticBody3D" groups=["Tower"]]
 script = ExtResource("1_1jji6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["Tower"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0.991615, 0.0858327, 0.924894)
 mesh = ExtResource("2_g6b48")
 

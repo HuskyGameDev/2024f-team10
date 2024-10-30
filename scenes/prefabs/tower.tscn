@@ -8,7 +8,7 @@ size = Vector3(1.92557, 0.272232, 2.13767)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_stqfw"]
 
-[node name="Tower2" type="StaticBody3D"]
+[node name="Tower2" type="StaticBody3D" groups=["Tower"]]
 script = ExtResource("1_hun1j")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
