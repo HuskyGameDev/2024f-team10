@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-var bullet : PackedScene = preload("res://scenes/bullet.tscn")
+var bullet : PackedScene = preload("res://scenes/prefabs/bullet.tscn")
 var health : int = 100
 var damage : int = 5
 var targets : Array = []
@@ -12,7 +12,7 @@ func shoot() -> void:
 	temp_bullet.target = cur_tar
 	temp_bullet.damage = damage
 	get_node("BulletContainer").add_child(temp_bullet)
-	temp_bullet.global_position = $Tower/Aim.global_position
+	temp_bullet.global_position = $MeshInstance3D/Aim.global_position
 
 func take_damage(dmg : float):
 	health -= dmg
@@ -23,7 +23,6 @@ func _process(delta):
 	if health <= 0:
 		queue_free()
 	if is_instance_valid(cur_tar):
-		look_at(cur_tar.global_position)
 		if can_shoot:
 			shoot()
 			can_shoot = false

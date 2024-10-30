@@ -7,6 +7,7 @@ var damage : int
 func _physics_process(delta):
 	if is_instance_valid(target):
 		velocity = global_position.direction_to(target.global_position) * speed
+		look_at(target.global_position)
 		move_and_slide()
 	else:
 		queue_free()
