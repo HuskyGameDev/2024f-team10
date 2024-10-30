@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://u4ny7wj0l2bq"]
+[gd_scene load_steps=12 format=3 uid="uid://u4ny7wj0l2bq"]
 
 [ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="1_al8bw"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="2_taeug"]
 [ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/prefabs/camera_rig.tscn" id="3_vf2uy"]
 [ext_resource type="Texture2D" uid="uid://dpjw6mvvbgjtd" path="res://assets/addons/godot-prototype-texture/PNG/checker_black_512x512.png" id="4_ojqpt"]
 [ext_resource type="PackedScene" uid="uid://cb3d50k44xdr1" path="res://scenes/prefabs/orc.tscn" id="5_mteyf"]
-[ext_resource type="PackedScene" uid="uid://bmofeqscvw4an" path="res://scenes/prefabs/tower.tscn" id="6_6ixqj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pv8rd"]
 shader = ExtResource("2_taeug")
@@ -57,13 +56,4 @@ transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 160, 0, 0, 0)
 mesh = SubResource("BoxMesh_vltjo")
 
 [node name="Orc3" parent="." instance=ExtResource("5_mteyf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.965449, 5.0384, -1.16085)
-
-[node name="Tower2" parent="." groups=["Tower Troop"] instance=ExtResource("6_6ixqj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6136, 0.389504, -1.2507)
-
-[node name="Tower4" parent="." groups=["Tower Troop"] instance=ExtResource("6_6ixqj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478695, 0.389504, -3.14347)
-
-[node name="Tower3" parent="." groups=["Tower Troop"] instance=ExtResource("6_6ixqj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60364, 0.423512, -1.03219)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47545, 0)
