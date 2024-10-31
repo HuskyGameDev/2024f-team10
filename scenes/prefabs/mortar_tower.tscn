@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2vcf2wfbkhy4"]
 
 [ext_resource type="Script" path="res://scripts/mortar_tower.gd" id="1_1jji6"]
-[ext_resource type="ArrayMesh" uid="uid://v0ilfu1sriju" path="res://assets/tower1.obj" id="2_g6b48"]
+[ext_resource type="ArrayMesh" uid="uid://pvg716eji26m" path="res://assets/bubblegumTower.obj" id="2_rn5hv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_neth3"]
-size = Vector3(1.92557, 2, 2.13767)
+size = Vector3(2.38691, 2, 2.41113)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_stqfw"]
 
@@ -14,14 +14,14 @@ size = Vector3(1.92557, 2, 2.13767)
 script = ExtResource("1_1jji6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0.991615, 0.0858327, 0.924894)
-mesh = ExtResource("2_g6b48")
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -0.008385, 0.0858327, -0.075106)
+mesh = ExtResource("2_rn5hv")
 
 [node name="Aim" type="Marker3D" parent="MeshInstance3D"]
-transform = Transform3D(5.55556, 0, 0, 0, 5.55556, 0, 0, 0, 5.55556, -5.50897, 42.8729, -5.09252)
+transform = Transform3D(5.55556, 0, 0, 0, 5.55556, 0, 0, 0, 5.55556, 0.0465857, 20.6507, 0.463035)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.066847, 0.854782, -0.00619654)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0468269, 0.854782, 0.0142986)
 shape = SubResource("BoxShape3D_neth3")
 
 [node name="DetectionRange" type="Area3D" parent="."]
