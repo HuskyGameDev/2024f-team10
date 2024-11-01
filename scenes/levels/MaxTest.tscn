@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://bia0st54b47kx"]
+
+[ext_resource type="Texture2D" uid="uid://dpjw6mvvbgjtd" path="res://assets/addons/godot-prototype-texture/PNG/checker_black_512x512.png" id="1_f3pp3"]
+[ext_resource type="PackedScene" uid="uid://cb3d50k44xdr1" path="res://scenes/prefabs/orc.tscn" id="2_a0ysm"]
+[ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/prefabs/camera_rig.tscn" id="3_tpnoe"]
+[ext_resource type="PackedScene" uid="uid://bmofeqscvw4an" path="res://scenes/prefabs/tower.tscn" id="4_rkwpi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpiia"]
+albedo_texture = ExtResource("1_f3pp3")
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_2bs1o"]
+material = SubResource("StandardMaterial3D_wpiia")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mwkdd"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="Curve3D" id="Curve3D_pru6y"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.015, 1, -0.061, 0, 0, 0, 0, 0, 0, 2.066, 1, -2.02, 0, 0, 0, 0, 0, 0, -2.403, 1, -2.755, 0, 0, 0, 0, 0, 0, -6.536, 1, -5.112, 0, 0, 0, 0, 0, 0, -15.23, 1, -6.429, 0, 0, 0, 0, 0, 0, -18.628, 1, -7.592, 0, 0, 0, 0, 0, 0, -18.414, 1, -8.939, 0, 0, 0, 0, 0, 0, -17.036, 1, -10.163, 0, 0, 0, 0, 0, 0, -14.495, 1, -10.776, 0, 0, 0, 0, 0, 0, 2.25, 1, -10.929, 0, 0, 0, 0, 0, 0, 8.036, 1, -11.235, 0, 0, 0, 0, 0, 0, 13.056, 1, -11.755, 0, 0, 0, 0, 0, 0, 15.475, 1, -12.674, 0, 0, 0, 0, 0, 0, 15.567, 1, -13.653, 0, 0, 0, 0, 0, 0, 14.679, 1, -14.388, 0, 0, 0, 0, 0, 0, 13.271, 1, -14.572, 0, 0, 0, 0, 0, 0, 11.526, 1, -14.51, 0, 0, 0, 0, 0, 0, -14.74, 1, -14.725, 0, 0, 0, 0, 0, 0, -14.565, 1, -14.809),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 19
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("BoxMesh_2bs1o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_mwkdd")
+
+[node name="Orc" parent="StaticBody3D" instance=ExtResource("2_a0ysm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.427148, 1.5, 4.92678)
+attackDmg = 10.0
+attackRange = 1.2
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.083417, 0.996515, 0, -0.996515, 0.083417, 0, 3.15561, 0)
+
+[node name="CameraRig" parent="." instance=ExtResource("3_tpnoe")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.679719, 2, 3.47187)
+visible = false
+
+[node name="Tower2" parent="." instance=ExtResource("4_rkwpi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94713, 0.5, -0.65201)
+visible = false
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_pru6y")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="PathFollow3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D/CharacterBody3D"]
