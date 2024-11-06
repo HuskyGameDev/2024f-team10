@@ -38,12 +38,12 @@ func choose_target(targets : Array) -> void:
 	cur_tar = current_target
 
 func _on_detection_range_body_entered(body):
-	if body.is_in_group("Orc Troop"):
+	if body.is_in_group("Tower Troop"):
 		targets.append(body)
 		choose_target(targets)
 
 func _on_detection_range_body_exited(body):
-	if body.is_in_group("Orc Troop"):
+	if body.is_in_group("Tower Troop"):
 		targets.erase(body)
 		choose_target(targets)
 
