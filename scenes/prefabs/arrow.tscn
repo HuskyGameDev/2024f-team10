@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://fweacobd4tl0"]
 
-[ext_resource type="Script" path="res://scripts/interface_scripts/arrow.gd" id="1_uwrcr"]
+[ext_resource type="Script" path="res://scripts/arrow.gd" id="1_uwrcr"]
 [ext_resource type="ArrayMesh" uid="uid://cpjjq27s3j81l" path="res://assets/arrow.obj" id="2_oqx4u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7cs27"]

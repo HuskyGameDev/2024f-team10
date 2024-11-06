@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc5mhvn4e7113"]
+[gd_scene load_steps=5 format=3 uid="uid://c08l8abkukw4e"]
 
-[ext_resource type="Script" path="res://scripts/boss_orc.gd" id="1_puctb"]
-[ext_resource type="ArrayMesh" uid="uid://lk3wykny0723" path="res://assets/TroopOrcHair1.obj" id="2_endpl"]
+[ext_resource type="Script" path="res://scripts/boss_tower.gd" id="1_4efre"]
+[ext_resource type="ArrayMesh" uid="uid://v0ilfu1sriju" path="res://assets/tower1.obj" id="2_k4k7j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_neth3"]
 size = Vector3(2.25916, 3.31642, 1.4558)
@@ -9,22 +9,21 @@ size = Vector3(2.25916, 3.31642, 1.4558)
 [sub_resource type="SphereShape3D" id="SphereShape3D_stqfw"]
 radius = 0.604747
 
-[node name="BossOrc" type="StaticBody3D" groups=["Orc Troop"]]
-script = ExtResource("1_puctb")
+[node name="BossTower" type="StaticBody3D" groups=["Tower"]]
+script = ExtResource("1_4efre")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, -0.00299644, 0.0858327, -0.00413269)
-mesh = ExtResource("2_endpl")
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0.991615, 0.0858327, 0.924894)
+mesh = ExtResource("2_k4k7j")
 
 [node name="Aim" type="Marker3D" parent="MeshInstance3D2"]
-transform = Transform3D(5.55556, 0, 0, 0, 5.55556, 0, 0, 0, 5.55556, -5.50897, 27.6126, -5.09252)
+transform = Transform3D(5.55556, 0, 0, 0, 5.55556, 0, 0, 0, 5.55556, -5.50897, 37.9363, -5.09252)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0259688, 1.51299, -0.0195054)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0734574, 2.4178, -0.00619654)
 shape = SubResource("BoxShape3D_neth3")
 
 [node name="DetectionRange" type="Area3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Range" type="CollisionShape3D" parent="DetectionRange"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -33,7 +32,6 @@ shape = SubResource("SphereShape3D_stqfw")
 [node name="BulletContainer" type="Node" parent="."]
 
 [node name="FireRate" type="Timer" parent="."]
-wait_time = 2.5
 
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
