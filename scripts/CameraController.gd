@@ -56,6 +56,6 @@ func handleMovementInput(delta : float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if ( event.is_action_pressed("Scroll_Down") ):
-		main_camera.transform.origin = clamp( main_camera.transform.origin + zoomAmount, Vector3(0, 10, 10), Vector3(0, 500, 500) )
+		main_camera.transform.origin = clamp( main_camera.transform.origin + zoomAmount, Vector3(0, 10, 10), Vector3(0, 150, 150) )
 	if ( event.is_action_pressed("Scroll_Up")):
-		main_camera.transform.origin = clamp( main_camera.transform.origin - zoomAmount, Vector3(0, 10, 10), Vector3(0, 500, 500) )
+		main_camera.transform.origin = clamp( main_camera.transform.origin - zoomAmount, Vector3(0, 10, 10), Vector3(0, 150, 150) )

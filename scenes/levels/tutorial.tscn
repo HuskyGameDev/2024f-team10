@@ -1,0 +1,520 @@
+[gd_scene load_steps=22 format=3 uid="uid://c1o6wltu0rotk"]
+
+[ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="1_wydb8"]
+[ext_resource type="Texture2D" uid="uid://c5ron6dv5qhf8" path="res://assets/materials/stylized-grass1-bl/stylized-grass1_ao.png" id="2_almmv"]
+[ext_resource type="Texture2D" uid="uid://cj53s4vljo8gm" path="res://assets/materials/stylized-grass1-bl/grass_albedo.png" id="3_0xyxy"]
+[ext_resource type="Texture2D" uid="uid://ch7kdeqndadaf" path="res://assets/materials/stylized-grass1-bl/stylized-grass1_normal-ogl.png" id="3_7qgs5"]
+[ext_resource type="Texture2D" uid="uid://pnv7nl7fdxdr" path="res://assets/materials/stylized-grass1-bl/stylized-grass1_height.png" id="4_bj5lu"]
+[ext_resource type="Texture2D" uid="uid://ckq6pkyrmfqgi" path="res://assets/materials/stylized-grass1-bl/stylized-grass1_metallic.png" id="5_6ro22"]
+[ext_resource type="Texture2D" uid="uid://beijb5qsh5mkn" path="res://assets/materials/stylized-grass1-bl/stylized-grass1_roughness.png" id="6_nfvdj"]
+[ext_resource type="PackedScene" uid="uid://cb3d50k44xdr1" path="res://scenes/prefabs/orc.tscn" id="7_eovva"]
+[ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/prefabs/camera_rig.tscn" id="8_lhg15"]
+[ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="9_c35o0"]
+[ext_resource type="PackedScene" uid="uid://g4at7huyhad" path="res://scenes/prefabs/road_brick.tscn" id="10_fxqii"]
+[ext_resource type="PackedScene" uid="uid://c2vcf2wfbkhy4" path="res://scenes/prefabs/mortar_tower.tscn" id="10_ufd8i"]
+[ext_resource type="PackedScene" uid="uid://bmofeqscvw4an" path="res://scenes/prefabs/tower.tscn" id="11_amtse"]
+[ext_resource type="PackedScene" uid="uid://bns0a3tv7bj8x" path="res://scenes/prefabs/tank.tscn" id="13_nmdna"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_gdkpl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oprtj"]
+shader = ExtResource("9_c35o0")
+
+[sub_resource type="Sky" id="Sky_fmucx"]
+sky_material = SubResource("ShaderMaterial_oprtj")
+
+[sub_resource type="Environment" id="Environment_pq7a7"]
+background_mode = 2
+sky = SubResource("Sky_fmucx")
+fog_light_energy = 2.18
+fog_density = 0.0305
+fog_sky_affect = 0.4
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ryv1w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06ks1"]
+albedo_texture = ExtResource("3_0xyxy")
+metallic = 1.0
+metallic_texture = ExtResource("5_6ro22")
+roughness_texture = ExtResource("6_nfvdj")
+normal_enabled = true
+normal_texture = ExtResource("3_7qgs5")
+ao_enabled = true
+ao_texture = ExtResource("2_almmv")
+heightmap_texture = ExtResource("4_bj5lu")
+uv1_scale = Vector3(0.8, 0.8, 0.8)
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i2lpu"]
+material = SubResource("StandardMaterial3D_06ks1")
+
+[node name="Tutorial" type="Node3D"]
+transform = Transform3D(1, -0.000792832, -0.000244347, 0.000792861, 1, 0.000116307, 0.000244253, -0.000116505, 1, 0, 0, 0)
+
+[node name="GUI" parent="." instance=ExtResource("1_wydb8")]
+metadata/_edit_use_anchors_ = true
+
+[node name="emeraldCounter" parent="GUI" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="emeraldTextureRect" parent="GUI/emeraldCounter" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="emeraldLabel" parent="GUI/emeraldCounter" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Multiplier" parent="GUI" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="MultiLabel" parent="GUI/Multiplier" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="1XButton" parent="GUI/Multiplier" index="1"]
+button_group = SubResource("ButtonGroup_gdkpl")
+metadata/_edit_use_anchors_ = true
+
+[node name="5xButton" parent="GUI/Multiplier" index="2"]
+button_group = SubResource("ButtonGroup_gdkpl")
+metadata/_edit_use_anchors_ = true
+
+[node name="10xButton" parent="GUI/Multiplier" index="3"]
+button_group = SubResource("ButtonGroup_gdkpl")
+metadata/_edit_use_anchors_ = true
+
+[node name="UnitBar" parent="GUI" index="2"]
+metadata/_edit_use_anchors_ = true
+
+[node name="OrcTextureRect" parent="GUI/UnitBar" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="OrcButton" parent="GUI/UnitBar" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="OrcLabel" parent="GUI/UnitBar" index="2"]
+metadata/_edit_use_anchors_ = true
+
+[node name="MeleeTextureRect" parent="GUI/UnitBar" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="MeleeButton" parent="GUI/UnitBar" index="4"]
+metadata/_edit_use_anchors_ = true
+
+[node name="MeleeLabel" parent="GUI/UnitBar" index="5"]
+metadata/_edit_use_anchors_ = true
+
+[node name="RangeTextureRect" parent="GUI/UnitBar" index="6"]
+metadata/_edit_use_anchors_ = true
+
+[node name="RangeButton" parent="GUI/UnitBar" index="7"]
+metadata/_edit_use_anchors_ = true
+
+[node name="RangeLabel" parent="GUI/UnitBar" index="8"]
+metadata/_edit_use_anchors_ = true
+
+[node name="HeavyTextureRect" parent="GUI/UnitBar" index="9"]
+metadata/_edit_use_anchors_ = true
+
+[node name="HeavyButton" parent="GUI/UnitBar" index="10"]
+metadata/_edit_use_anchors_ = true
+
+[node name="HeavyLabel" parent="GUI/UnitBar" index="11"]
+metadata/_edit_use_anchors_ = true
+
+[node name="CameraRig" parent="." instance=ExtResource("8_lhg15")]
+transform = Transform3D(0.707107, 6.78213e-12, 0.707107, -1.01863e-10, 1, -1.01863e-10, -0.707107, -1.45519e-11, 0.707107, 0.0158525, 1.89553, -0.488708)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pq7a7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.947756, 0.280961, -0.151063, 0.255712, -0.386032, 0.886336, 0.190711, -0.878658, -0.437709, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 300.0
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 6.78391e-12, -2.91038e-11, 7.89591e-12, 1, 7.27596e-12, 2.91038e-11, -7.27596e-12, 1, -1.47918e-05, -0.0186562, -2.16993e-06)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_ryv1w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(-14.8031, -9.5314e-11, 3.72529e-09, -6.2453e-09, 1.00359, -3.72529e-09, -2.56114e-09, -5.09317e-11, -105.427, 0, 0, 0)
+mesh = SubResource("PlaneMesh_i2lpu")
+
+[node name="Bricks" type="Node" parent="."]
+
+[node name="RoadBrick" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -4.23324e-11, 0, -4.1215e-11, 1.00097, 1.45519e-11, 5.82077e-11, 0, 1.00097, -1, -5.09317e-11, -1)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick2" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00536e-10, 0, -9.94209e-11, 1.00097, 2.18279e-11, 8.73115e-11, 0, 1.00097, 1, -7.27596e-11, -1)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick3" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 1, -8.73115e-11, -3)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick4" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58737e-10, 0, -2.15829e-10, 1.00097, 3.63798e-11, 1.45519e-10, 0, 1.00097, -1, -8.73115e-11, -3)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick5" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00536e-10, 0, -9.94209e-11, 1.00097, 2.18279e-11, 8.73115e-11, 0, 1.00097, -1, -1.74623e-10, -5)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick25" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00536e-10, 0, -9.94209e-11, 1.00097, 2.18279e-11, 8.73115e-11, 0, 1.00097, -1, -1.74623e-10, -5)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick6" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 1, -5.82077e-11, -5)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick7" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 1, -5.82077e-11, -7)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick19" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 3, -5.82077e-11, -7)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick31" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 3, -5.82077e-11, -5)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick32" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 5, -5.82077e-11, -7)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick33" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 5, -5.82077e-11, -9)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick34" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 7, -5.82077e-11, -9)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick35" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 5, -5.82077e-11, -13)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick39" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 7, -5.82077e-11, -13)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick40" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 7, -5.82077e-11, -15)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick41" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 5, -5.82077e-11, -15)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick36" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 5, -5.82077e-11, -11)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick37" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 3, -5.82077e-11, -9)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick38" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 7, -5.82077e-11, -11)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick8" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -1, -1.74623e-10, -7)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick17" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -3, -1.74623e-10, -7)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick18" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -5, -1.74623e-10, -7)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick20" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -3, -1.74623e-10, -5)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick21" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -5, -1.74623e-10, -9)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick30" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -7, -1.74623e-10, -9)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick22" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -3, -1.74623e-10, -9)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick23" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -5, -1.74623e-10, -11)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick24" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -7, -1.74623e-10, -11)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick26" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -7, -1.74623e-10, -13)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick27" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -5, -1.74623e-10, -13)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick28" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -5, -1.74623e-10, -15)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick29" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -7, -1.74623e-10, -15)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick9" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -4.23324e-11, 0, -4.1215e-11, 1.00097, 1.45519e-11, 5.82077e-11, 0, 1.00097, -1, -5.09317e-11, 7)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick10" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00536e-10, 0, -9.94209e-11, 1.00097, 2.18279e-11, 8.73115e-11, 0, 1.00097, 1, -7.27596e-11, 7)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick11" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 1, -8.73115e-11, 5)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick12" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58737e-10, 0, -2.15829e-10, 1.00097, 3.63798e-11, 1.45519e-10, 0, 1.00097, -1, -8.73115e-11, 5)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick13" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00536e-10, 0, -9.94209e-11, 1.00097, 2.18279e-11, 8.73115e-11, 0, 1.00097, -1, -1.74623e-10, 3)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick14" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.00533e-10, 0, -1.57625e-10, 1.00097, 2.91038e-11, 1.16415e-10, 0, 1.00097, 1, -5.82077e-11, 3)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick15" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58737e-10, 0, -2.15829e-10, 1.00097, 3.63798e-11, 1.45519e-10, 0, 1.00097, 1, -1.16415e-10, 1)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick16" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(1.00097, -1.58733e-10, 0, -2.74033e-10, 1.00097, 4.36557e-11, 1.74623e-10, 0, 1.00097, -1, -1.74623e-10, 1)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick42" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 4.23324e-11, 8.75073e-08, -4.1215e-11, 1.00097, 1.45519e-11, -8.75655e-08, 3.70081e-18, -1.00097, 0.95122, -5.09317e-11, -30.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick43" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00536e-10, 8.75073e-08, -9.94209e-11, 1.00097, 2.18279e-11, -8.75946e-08, 5.31637e-18, -1.00097, -1.04878, -7.27596e-11, -30.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick44" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -1.04878, -8.73115e-11, -28.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick45" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58737e-10, 8.75073e-08, -2.15829e-10, 1.00097, 3.63798e-11, -8.76528e-08, 1.38772e-17, -1.00097, 0.95122, -8.73115e-11, -28.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick46" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00536e-10, 8.75073e-08, -9.94209e-11, 1.00097, 2.18279e-11, -8.75946e-08, 5.31637e-18, -1.00097, 0.95122, -1.74623e-10, -26.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick47" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00536e-10, 8.75073e-08, -9.94209e-11, 1.00097, 2.18279e-11, -8.75946e-08, 5.31637e-18, -1.00097, 0.95122, -1.74623e-10, -26.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick48" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -1.04878, -5.82077e-11, -26.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick49" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -1.04878, -5.82077e-11, -24.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick50" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -3.04878, -5.82077e-11, -24.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick51" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -3.04878, -5.82077e-11, -26.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick52" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -5.04878, -5.82077e-11, -24.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick53" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -5.04878, -5.82077e-11, -22.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick54" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -7.04878, -5.82077e-11, -22.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick55" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -5.04878, -5.82077e-11, -18.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick56" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -7.04878, -5.82077e-11, -18.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick57" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -7.04878, -5.82077e-11, -16.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick58" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -5.04878, -5.82077e-11, -16.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick59" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -5.04878, -5.82077e-11, -20.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick60" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -3.04878, -5.82077e-11, -22.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick61" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -7.04878, -5.82077e-11, -20.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick62" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 0.951219, -1.74623e-10, -24.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick63" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 2.95122, -1.74623e-10, -24.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick64" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 4.95122, -1.74623e-10, -24.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick65" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 2.95122, -1.74623e-10, -26.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick66" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 4.95122, -1.74623e-10, -22.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick67" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 6.95122, -1.74623e-10, -22.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick68" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 2.95122, -1.74623e-10, -22.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick69" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 4.95122, -1.74623e-10, -20.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick70" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 6.95122, -1.74623e-10, -20.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick71" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 6.95122, -1.74623e-10, -18.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick72" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 4.95122, -1.74623e-10, -18.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick73" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 4.95122, -1.74623e-10, -16.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick74" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 6.95122, -1.74623e-10, -16.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick75" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 4.23324e-11, 8.75073e-08, -4.1215e-11, 1.00097, 1.45519e-11, -8.75655e-08, 3.70081e-18, -1.00097, 0.951221, -5.09317e-11, -38.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick76" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00536e-10, 8.75073e-08, -9.94209e-11, 1.00097, 2.18279e-11, -8.75946e-08, 5.31637e-18, -1.00097, -1.04878, -7.27596e-11, -38.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick77" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -1.04878, -8.73115e-11, -36.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick78" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58737e-10, 8.75073e-08, -2.15829e-10, 1.00097, 3.63798e-11, -8.76528e-08, 1.38772e-17, -1.00097, 0.951221, -8.73115e-11, -36.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick79" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00536e-10, 8.75073e-08, -9.94209e-11, 1.00097, 2.18279e-11, -8.75946e-08, 5.31637e-18, -1.00097, 0.95122, -1.74623e-10, -34.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick80" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.00533e-10, 8.75073e-08, -1.57625e-10, 1.00097, 2.91038e-11, -8.76237e-08, 8.78887e-18, -1.00097, -1.04878, -5.82077e-11, -34.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick81" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58737e-10, 8.75073e-08, -2.15829e-10, 1.00097, 3.63798e-11, -8.76528e-08, 1.38772e-17, -1.00097, -1.04878, -1.16415e-10, -32.9947)
+skeleton = NodePath("../..")
+
+[node name="RoadBrick82" parent="Bricks" instance=ExtResource("10_fxqii")]
+transform = Transform3D(-1.00097, 1.58733e-10, 8.75073e-08, -2.74033e-10, 1.00097, 4.36557e-11, -8.76819e-08, 1.38769e-17, -1.00097, 0.95122, -1.74623e-10, -32.9947)
+skeleton = NodePath("../..")
+
+[node name="PlaceholderOrc" parent="." instance=ExtResource("13_nmdna")]
+transform = Transform3D(1, 0.000792861, 0.000244254, -0.000792833, 1, -0.000116501, -0.000244345, 0.000116311, 1, -0.00147037, 1.50829, 6.75292)
+
+[node name="Units" type="Node" parent="."]
+
+[node name="Orc" parent="Units" instance=ExtResource("7_eovva")]
+transform = Transform3D(1, -0.000792832, -0.000244347, 0.000792861, 1, 0.000116307, 0.000244253, -0.000116505, 1, -0.382731, 0.900878, 0.329943)
+
+[node name="Orc2" parent="Units" instance=ExtResource("7_eovva")]
+transform = Transform3D(1, -0.000792832, -0.000244347, 0.000792861, 1, 0.000116307, 0.000244253, -0.000116505, 1, 2.57933, 0.910746, -0.0303181)
+
+[node name="Towers" type="Node" parent="."]
+
+[node name="Tower" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -1.48486e-11, 0, -1.3733e-11, 1, 1.45519e-11, 5.82077e-11, 0, 1, -6.67563, -0.028361, -37.8719)
+
+[node name="Tower2" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -1.48486e-11, 0, -1.37295e-11, 1, 2.18279e-11, 8.73115e-11, 0, 1, 6.32437, -0.028361, -37.8719)
+
+[node name="Tower3" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -1.48486e-11, 0, -1.37224e-11, 1, 3.63798e-11, 1.45519e-10, 0, 1, -1.67563, -0.028361, -44.8719)
+
+[node name="Tower4" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -1.48486e-11, 0, -1.37188e-11, 1, 4.36557e-11, 1.74623e-10, 0, 1, 1.32437, -0.028361, -44.8719)
+
+[node name="Tower5" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -1.48486e-11, 0, -1.37295e-11, 1, 2.18279e-11, 8.73115e-11, 0, 1, -9.05735, -0.0603244, -11.6178)
+
+[node name="Tower6" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -1.48486e-11, 0, -1.37224e-11, 1, 3.63798e-11, 1.45519e-10, 0, 1, 9.07213, -0.110989, -11.8397)
+
+[node name="Mortar_Tower" parent="Towers" instance=ExtResource("10_ufd8i")]
+transform = Transform3D(1, -1.48486e-11, 0, -1.37366e-11, 1, 7.27596e-12, 2.91038e-11, 0, 1, -2.97585, -0.0259169, -42.071)
+
+[node name="Mortar_Tower2" parent="Towers" instance=ExtResource("10_ufd8i")]
+transform = Transform3D(1, -1.48486e-11, 0, -1.3733e-11, 1, 1.45519e-11, 5.82077e-11, 0, 1, 3.02415, -0.0259169, -42.071)
+
+[node name="Mortar_Tower3" parent="Towers" instance=ExtResource("10_ufd8i")]
+transform = Transform3D(1, -1.48486e-11, 0, -1.37224e-11, 1, 3.63798e-11, 1.45519e-10, 0, 1, -0.0690861, -0.0240079, -22.0097)
+
+[editable path="GUI"]
+[editable path="GUI/emeraldCounter"]
+[editable path="GUI/Multiplier"]
+[editable path="GUI/UnitBar"]

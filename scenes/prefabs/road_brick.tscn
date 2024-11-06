@@ -1,0 +1,26 @@
+[gd_scene load_steps=9 format=3 uid="uid://g4at7huyhad"]
+
+[ext_resource type="Texture2D" uid="uid://cdqg11spvnd1k" path="res://assets/materials/sandstone-blocks-bl/sandstone-blocks_albedo.png" id="1_n2did"]
+[ext_resource type="Texture2D" uid="uid://dkets3hbasuvk" path="res://assets/materials/sandstone-blocks-bl/sandstone-blocks_ao.png" id="2_03qy3"]
+[ext_resource type="Texture2D" uid="uid://bsroe27yjggkm" path="res://assets/materials/sandstone-blocks-bl/sandstone-blocks_height.png" id="3_nwedu"]
+[ext_resource type="Texture2D" uid="uid://b77balt7rv4ph" path="res://assets/materials/sandstone-blocks-bl/sandstone-blocks_metallic.png" id="4_6lbh8"]
+[ext_resource type="Texture2D" uid="uid://bs7it5kchiomr" path="res://assets/materials/sandstone-blocks-bl/sandstone-blocks_normal-ogl.png" id="5_wu1cf"]
+[ext_resource type="Texture2D" uid="uid://d1xied05q6yy4" path="res://assets/materials/sandstone-blocks-bl/sandstone-blocks_roughness.png" id="6_o7xkg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dntob"]
+albedo_texture = ExtResource("1_n2did")
+metallic = 1.0
+metallic_texture = ExtResource("4_6lbh8")
+roughness_texture = ExtResource("6_o7xkg")
+normal_enabled = true
+normal_texture = ExtResource("5_wu1cf")
+ao_enabled = true
+ao_texture = ExtResource("2_03qy3")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_nwedu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m1vs0"]
+material = SubResource("StandardMaterial3D_dntob")
+
+[node name="RoadBrick" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_m1vs0")

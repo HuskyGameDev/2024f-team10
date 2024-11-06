@@ -16,12 +16,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pv8rd"]
 shader = ExtResource("4_lhlni")
 
-[sub_resource type="Sky" id="Sky_fmucx"]
+[sub_resource type="Sky" id="Sky_l3sql"]
 sky_material = SubResource("ShaderMaterial_pv8rd")
 
 [sub_resource type="Environment" id="Environment_pia4t"]
 background_mode = 2
-sky = SubResource("Sky_fmucx")
+sky = SubResource("Sky_l3sql")
 fog_light_energy = 2.18
 fog_density = 0.0305
 fog_sky_affect = 0.4

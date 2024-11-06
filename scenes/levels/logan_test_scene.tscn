@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://u4ny7wj0l2bq"]
+[gd_scene load_steps=18 format=3 uid="uid://u4ny7wj0l2bq"]
 
 [ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="1_al8bw"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="2_taeug"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bmofeqscvw4an" path="res://scenes/prefabs/tower.tscn" id="6_6ixqj"]
 [ext_resource type="PackedScene" uid="uid://dcrv187u8p7en" path="res://scenes/prefabs/archer.tscn" id="6_g21hn"]
 [ext_resource type="PackedScene" uid="uid://bns0a3tv7bj8x" path="res://scenes/prefabs/tank.tscn" id="6_nmt2h"]
+[ext_resource type="PackedScene" uid="uid://c2vcf2wfbkhy4" path="res://scenes/prefabs/mortar_tower.tscn" id="10_gnoby"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pv8rd"]
 shader = ExtResource("2_taeug")
@@ -26,7 +27,7 @@ fog_sky_affect = 0.4
 [sub_resource type="BoxShape3D" id="BoxShape3D_70ykl"]
 size = Vector3(50, 1, 115)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyp8c"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rpqqj"]
 albedo_texture = ExtResource("4_ojqpt")
 uv1_triplanar = true
 uv1_world_triplanar = true
@@ -34,7 +35,7 @@ uv2_triplanar = true
 uv2_world_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_vltjo"]
-material = SubResource("StandardMaterial3D_hyp8c")
+material = SubResource("StandardMaterial3D_rpqqj")
 
 [sub_resource type="SphereMesh" id="SphereMesh_d2lvj"]
 
@@ -61,15 +62,6 @@ shape = SubResource("BoxShape3D_70ykl")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 115, 0, 0, 0)
 mesh = SubResource("BoxMesh_vltjo")
-
-[node name="SwordOrc" parent="Ground" instance=ExtResource("5_t053h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3886, 1.5, 38.001)
-
-[node name="Tank" parent="Ground" instance=ExtResource("6_nmt2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5968, 2.21787, 23.7725)
-
-[node name="Orc" parent="Ground" instance=ExtResource("5_mteyf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7955, 1.5, 16.7042)
 
 [node name="Tower2" parent="." instance=ExtResource("6_6ixqj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.41626, 0.5, 40.3864)
@@ -98,6 +90,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.45556, 0.5, -31.9216)
 [node name="Tower10" parent="." instance=ExtResource("6_6ixqj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.77352, 0.5, -30.4997)
 
+[node name="Mortar_Tower" parent="." instance=ExtResource("10_gnoby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.740662, 0.5, 13.2342)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0690443, 0, 8.96905, 0, 3.81052, 0, -5.80026, 0, -0.106765, -0.534133, 2.47291, 52.767)
 mesh = SubResource("SphereMesh_d2lvj")
@@ -111,3 +106,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63278, 1.4229, 47.8903)
 
 [node name="Tank" parent="." instance=ExtResource("6_nmt2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7981, 2.66636, -10.3925)
+
+[node name="Orc2" parent="." instance=ExtResource("5_mteyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.999061, 1.5, 16.9359)
+
+[node name="SwordOrc" parent="." instance=ExtResource("5_t053h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3886, 1.5, 38.001)
+
+[node name="Tank2" parent="." instance=ExtResource("6_nmt2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5968, 2.21787, 23.7725)
+
+[node name="Orc" parent="." instance=ExtResource("5_mteyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7955, 1.5, 16.7042)
