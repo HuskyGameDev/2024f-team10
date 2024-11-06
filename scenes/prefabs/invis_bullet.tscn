@@ -1,28 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://iiver4taymqb"]
+[gd_scene load_steps=4 format=3 uid="uid://bw7tb8v6lf8vt"]
 
-[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_7fm5u"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_j3kme"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_mnsh1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7cs27"]
+size = Vector3(1.02881, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ou1m"]
 
-[node name="Bullet" type="CharacterBody3D"]
-script = ExtResource("1_7fm5u")
+[node name="InvisBullet" type="CharacterBody3D"]
+script = ExtResource("1_mnsh1")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(-4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("PrismMesh_j3kme")
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 shape = SubResource("BoxShape3D_7cs27")
 
 [node name="Collision" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collision"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 shape = SubResource("BoxShape3D_7ou1m")
 
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]

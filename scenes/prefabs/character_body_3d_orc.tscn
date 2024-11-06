@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://drnxol7kgl5oi"]
 
 [ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="1_pduth"]
-[ext_resource type="Script" path="res://scenes/prefabs/orc_test.gd" id="1_syd8t"]
+[ext_resource type="Script" path="res://scripts/orc_test.gd" id="1_syd8t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fd5te"]
 
