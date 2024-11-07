@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://d02eu35fojsws"]
 
 [ext_resource type="Script" path="res://scripts/interface_scripts/resource_tower.gd" id="1_32dwy"]
-[ext_resource type="ArrayMesh" uid="uid://v0ilfu1sriju" path="res://assets/tower1.obj" id="1_dhi14"]
+[ext_resource type="ArrayMesh" uid="uid://2aqecy4haywr" path="res://assets/peppermintMine.obj" id="2_i4dcr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8md3i"]
-size = Vector3(1.85329, 1.68311, 2.02618)
+size = Vector3(1.74549, 1.96411, 2.63716)
 
 [node name="ResourceTower" type="StaticBody3D" groups=["Tower"]]
 script = ExtResource("1_32dwy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018898, 0.872803, 0.000213623)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0350006, 1.0133, 0.00243437)
 shape = SubResource("BoxShape3D_8md3i")
 
 [node name="Tower1" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0.87692, 0, 0.943278)
-mesh = ExtResource("1_dhi14")
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.00255084, 0, -0.00237787)
+mesh = ExtResource("2_i4dcr")
