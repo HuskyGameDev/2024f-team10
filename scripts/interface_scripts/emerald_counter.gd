@@ -35,3 +35,6 @@ func checkEmerald(value, troopNum, troopMultiplier):
 		await get_tree().create_timer(1).timeout
 		label.text = ""
 		pass
+		
+func addEmerald(value):
+	emeraldCount += value
