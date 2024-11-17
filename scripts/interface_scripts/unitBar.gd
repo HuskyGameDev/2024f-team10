@@ -2,9 +2,11 @@ extends NinePatchRect
 
 signal emeraldDeduction(value, troopVal, troopNum)
 
-signal spawnTroop(troopVal, troopNum)
+signal spawnTroop(troopVal, troopNum, pathVal)
 
 var multiplier : int = 1
+
+var pathValue : int = 1
 
 var orcCost : int = 1
 var meleeCost : int = 2
@@ -24,6 +26,10 @@ func _multiplier_change(value):
 	meleeLabel.text = str("Cost: ", multiplier*meleeCost)
 	rangeLabel.text = str("Cost: ", multiplier*rangeCost)
 	heavyLabel.text = str("Cost: ", multiplier*heavyCost)
+	pass
+
+func _path_change(value):
+	pathValue = value
 	pass
 
 func _on_pressed(value):#Emits signle to emeraldDeduction in emerald_counter.gd
@@ -55,7 +61,7 @@ func _on_pressed(value):#Emits signle to emeraldDeduction in emerald_counter.gd
 	#Emits signal to game.gd to spawn troops
 func costCheck(tfvalue, troopVal, troopNum):
 	if tfvalue == true:
-		emit_signal("spawnTroop", troopVal, troopNum)
+		emit_signal("spawnTroop", troopVal, troopNum, pathValue)
 		pass
 	else:
 		pass

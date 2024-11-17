@@ -11,7 +11,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_mob_spawn(troopId, spawnCount):
+#Triggered by signal from unitBar.gd
+func _on_mob_spawn(troopId, spawnCount, pathVal):
 
 	for i in range(spawnCount):
 		# Get a random point along the path for each mo
@@ -24,10 +25,10 @@ func mob_spawn(troopId):
 	mob_spawn_location.progress_ratio = randf()
 	var spawn_position = mob_spawn_location.position
 	
-	var towers = get_tree().get_nodes_in_group("test_level_towers")
-	print(towers)
-	print(towers[1].position)
-	towers.sort()
+	#var towers = get_tree().get_nodes_in_group("test_level_towers")
+	#print(towers)
+	#print(towers[1].position)
+	#towers.sort()
 	
 	match troopId:
 		1:
@@ -36,7 +37,7 @@ func mob_spawn(troopId):
 			# Set a unique position for each mob by randomizing the progress ratio
 			
 			# Initialize mob with its unique spawn position
-			orc.initialize(spawn_position, towers[1].position)
+			orc.initialize(spawn_position, 0)
 			# Add mob to the scene
 			print("Orc Position" + str(orc.position))
 			add_child(orc)

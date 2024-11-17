@@ -38,3 +38,6 @@ func checkEmerald(value, troopNum, troopMultiplier):
 		
 func addEmerald(value):
 	emeraldCount += value
+	var label = get_node("emeraldLabel")
+	label.text = str(emeraldCount)
+	pass

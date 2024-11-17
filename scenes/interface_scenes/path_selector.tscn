@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0ytjrmbf8wfg"]
+
+[ext_resource type="Script" path="res://scripts/interface_scripts/path_selector.gd" id="1_cxmix"]
+[ext_resource type="ButtonGroup" uid="uid://c2kqf28iedrft" path="res://scenes/interface_scenes/path_button_group.tres" id="1_do36r"]
+
+[sub_resource type="Gradient" id="Gradient_8ef6p"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m0hq2"]
+gradient = SubResource("Gradient_8ef6p")
+fill_from = Vector2(1, 0)
+
+[node name="pathSelector" type="NinePatchRect"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -140.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_m0hq2")
+script = ExtResource("1_cxmix")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.25
+text = "Path"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.5
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("1_do36r")
+text = "Path 1"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.75
+toggle_mode = true
+button_group = ExtResource("1_do36r")
+text = "Path 2"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+button_group = ExtResource("1_do36r")
+text = "Path 3"

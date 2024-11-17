@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cerl73dej0wlf"]
+[gd_scene load_steps=7 format=3 uid="uid://cerl73dej0wlf"]
 
 [ext_resource type="PackedScene" uid="uid://b6bw3t1lwesde" path="res://scenes/interface_scenes/EmeraldCounter.tscn" id="1_ujph7"]
 [ext_resource type="PackedScene" uid="uid://bqvvf3xbsema" path="res://scenes/interface_scenes/multiplier.tscn" id="2_ans22"]
 [ext_resource type="PackedScene" uid="uid://cx6x6es0vx7b" path="res://scenes/interface_scenes/units.tscn" id="3_rgups"]
+[ext_resource type="PackedScene" uid="uid://c0ytjrmbf8wfg" path="res://scenes/interface_scenes/path_selector.tscn" id="4_ihfse"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k7g3p"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ttx31"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -32,10 +35,35 @@ button_group = SubResource("ButtonGroup_k7g3p")
 [node name="UnitBar" parent="." instance=ExtResource("3_rgups")]
 layout_mode = 1
 
+[node name="pathSelector" parent="." instance=ExtResource("4_ihfse")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 116.0
+offset_bottom = 140.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Button" parent="pathSelector" index="1"]
+button_group = SubResource("ButtonGroup_ttx31")
+
+[node name="Button2" parent="pathSelector" index="2"]
+button_group = SubResource("ButtonGroup_ttx31")
+
+[node name="Button3" parent="pathSelector" index="3"]
+button_group = SubResource("ButtonGroup_ttx31")
+
 [connection signal="enoughEmerald" from="emeraldCounter" to="UnitBar" method="costCheck"]
 [connection signal="multi" from="Multiplier" to="UnitBar" method="_multiplier_change"]
 [connection signal="emeraldDeduction" from="UnitBar" to="emeraldCounter" method="checkEmerald"]
+[connection signal="pathOutput" from="pathSelector" to="UnitBar" method="_path_change"]
 
 [editable path="emeraldCounter"]
 [editable path="Multiplier"]
 [editable path="UnitBar"]
+[editable path="pathSelector"]
