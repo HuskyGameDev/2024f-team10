@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cq74dp3td8yax"]
+[gd_scene load_steps=28 format=3 uid="uid://cq74dp3td8yax"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_sulls"]
 [ext_resource type="PackedScene" uid="uid://cb3d50k44xdr1" path="res://scenes/prefabs/orc.tscn" id="2_cegw1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="4_lhlni"]
 [ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/prefabs/camera_rig.tscn" id="5_qhos6"]
 [ext_resource type="Texture2D" uid="uid://dpjw6mvvbgjtd" path="res://assets/addons/godot-prototype-texture/PNG/checker_black_512x512.png" id="6_bd4le"]
+[ext_resource type="PackedScene" uid="uid://d02eu35fojsws" path="res://scenes/prefabs/resource_tower.tscn" id="6_vfmjq"]
 [ext_resource type="Texture2D" uid="uid://k2d072d5osso" path="res://assets/addons/godot-prototype-texture/PNG/grid_orange_512x512.png" id="7_3ixx0"]
 [ext_resource type="Texture2D" uid="uid://d3efjw3avj0g6" path="res://assets/addons/godot-prototype-texture/PNG/grid_blue_512x512.png" id="8_158uk"]
 [ext_resource type="PackedScene" uid="uid://bmofeqscvw4an" path="res://scenes/prefabs/tower.tscn" id="9_g2tpr"]
@@ -79,7 +80,6 @@ point_count = 5
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_sulls")
-Orc2 = ExtResource("2_cegw1")
 
 [node name="GUI" parent="." instance=ExtResource("3_oqqoc")]
 metadata/_edit_use_anchors_ = true
@@ -177,6 +177,9 @@ shape = SubResource("BoxShape3D_mvsbx")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("BoxMesh_vltjo")
+
+[node name="ResourceTower" parent="Ground" instance=ExtResource("6_vfmjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05301, 0.5, -2.92375)
 
 [node name="Blocks" type="Node3D" parent="."]
 

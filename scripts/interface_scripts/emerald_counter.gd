@@ -5,6 +5,7 @@ var emeraldCount : int = 0
 var passiveEmAdd : int = 1 #amount of emeralds added for second
 
 signal enoughEmerald(checkValue, troopN, TroopMulti)
+signal resource_tower_destroyed
 
 #Calculates passive Emerald Gain
 #Called by timeout() from Timer in emeraldCounter.tscn
@@ -41,3 +42,7 @@ func addEmerald(value):
 	var label = get_node("emeraldLabel")
 	label.text = str(emeraldCount)
 	pass
+
+
+func _on_resource_tower_destroyed():
+	addEmerald(20)

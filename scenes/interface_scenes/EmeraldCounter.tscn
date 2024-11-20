@@ -47,4 +47,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[connection signal="enoughEmerald" from="." to="." method="_on_enough_emerald"]
+[connection signal="resource_tower_destroyed" from="." to="." method="_on_resource_tower_destroyed"]
 [connection signal="timeout" from="Timer" to="." method="passiveEmerald"]
