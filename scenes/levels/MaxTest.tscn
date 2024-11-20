@@ -52,7 +52,8 @@ curve = SubResource("Curve3D_pru6y")
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
 transform = Transform3D(0.690695, 0, -0.723131, 0, 0.999989, 0, 0.723131, 0, 0.690694, 0.015, 1, -0.061)
 
-[node name="Orc" parent="." instance=ExtResource("2_a0ysm")]
+[node name="Orc" parent="." node_paths=PackedStringArray("Path") instance=ExtResource("2_a0ysm")]
 transform = Transform3D(0.690698, 0.00501052, -0.723116, 0, 0.999965, 0.00692882, 0.723135, -0.00478577, 0.69068, -3.83515, 2.53408, 3.02576)
+Path = NodePath("../Path3D/PathFollow3D")
 attackDmg = 10.0
 attackRange = 1.2

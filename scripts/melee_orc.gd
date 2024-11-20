@@ -6,7 +6,7 @@ extends Unit
 
 @export var speed: int = 2
 
-@onready var Path : PathFollow3D =  get_parent()
+@export var Path : PathFollow3D
 
 var canAttack : bool
 
@@ -33,11 +33,12 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta):
 	Path.progress += speed * delta
+	global_position = Path.global_position
 	#Path.set_progress(Path.get_progress() * speed * delta)
-	
 	
 	if Path.get_progress_ratio() >= 0.99:
 		Path.queue_free()
+		queue_free()
 	
 
 
