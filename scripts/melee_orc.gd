@@ -4,12 +4,15 @@ extends Unit
 @onready var regen_timer: Timer = $RegenTimer
 @onready var range: CollisionShape3D = $DetectionRange/Range
 
+@export var speed: int = 2
+
+@onready var Path : PathFollow3D =  get_parent()
+
 var canAttack : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	currentHealth = MAX_HEALTH
-	
 	# setup the attack range:
 	var rangeDetector = SphereShape3D.new()
 	rangeDetector.radius = attackRange
@@ -28,7 +31,14 @@ func _process(delta: float) -> void:
 		attack_timer.start()
 		canAttack = false
 
-
+func _physics_process(delta):
+	Path.progress += speed * delta
+	#Path.set_progress(Path.get_progress() * speed * delta)
+	
+	
+	if Path.get_progress_ratio() >= 0.99:
+		Path.queue_free()
+	
 
 
 func attack(target : StaticBody3D):

@@ -28,6 +28,7 @@ point_count = 19
 [node name="Node3D" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
@@ -36,27 +37,22 @@ mesh = SubResource("BoxMesh_2bs1o")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_mwkdd")
 
-[node name="Orc" parent="StaticBody3D" instance=ExtResource("2_a0ysm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.427148, 1.5, 4.92678)
-attackDmg = 10.0
-attackRange = 1.2
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.083417, 0.996515, 0, -0.996515, 0.083417, 0, 3.15561, 0)
 
 [node name="CameraRig" parent="." instance=ExtResource("3_tpnoe")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.679719, 2, 3.47187)
-visible = false
 
 [node name="Tower2" parent="." instance=ExtResource("4_rkwpi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94713, 0.5, -0.65201)
-visible = false
 
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_pru6y")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="."]
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.690695, 0, -0.723131, 0, 0.999989, 0, 0.723131, 0, 0.690694, 0.015, 1, -0.061)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="PathFollow3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D/CharacterBody3D"]
+[node name="Orc" parent="." instance=ExtResource("2_a0ysm")]
+transform = Transform3D(0.690698, 0.00501052, -0.723116, 0, 0.999965, 0.00692882, 0.723135, -0.00478577, 0.69068, -3.83515, 2.53408, 3.02576)
+attackDmg = 10.0
+attackRange = 1.2
