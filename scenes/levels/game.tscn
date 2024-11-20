@@ -1,10 +1,13 @@
-[gd_scene load_steps=28 format=3 uid="uid://cq74dp3td8yax"]
+[gd_scene load_steps=31 format=3 uid="uid://cq74dp3td8yax"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_sulls"]
 [ext_resource type="PackedScene" uid="uid://cb3d50k44xdr1" path="res://scenes/prefabs/orc.tscn" id="2_cegw1"]
+[ext_resource type="PackedScene" uid="uid://cxswqte6s5w8i" path="res://scenes/prefabs/sword_orc.tscn" id="3_8cxga"]
 [ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="3_oqqoc"]
+[ext_resource type="PackedScene" uid="uid://dcrv187u8p7en" path="res://scenes/prefabs/archer.tscn" id="4_8fvvp"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="4_lhlni"]
 [ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/prefabs/camera_rig.tscn" id="5_qhos6"]
+[ext_resource type="PackedScene" uid="uid://bns0a3tv7bj8x" path="res://scenes/prefabs/tank.tscn" id="5_ytrmg"]
 [ext_resource type="Texture2D" uid="uid://dpjw6mvvbgjtd" path="res://assets/addons/godot-prototype-texture/PNG/checker_black_512x512.png" id="6_bd4le"]
 [ext_resource type="PackedScene" uid="uid://d02eu35fojsws" path="res://scenes/prefabs/resource_tower.tscn" id="6_vfmjq"]
 [ext_resource type="Texture2D" uid="uid://k2d072d5osso" path="res://assets/addons/godot-prototype-texture/PNG/grid_orange_512x512.png" id="7_3ixx0"]
@@ -80,6 +83,10 @@ point_count = 5
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_sulls")
+Orc = ExtResource("2_cegw1")
+meleeOrc = ExtResource("3_8cxga")
+rangeOrc = ExtResource("4_8fvvp")
+tankOrc = ExtResource("5_ytrmg")
 
 [node name="GUI" parent="." instance=ExtResource("3_oqqoc")]
 metadata/_edit_use_anchors_ = true
