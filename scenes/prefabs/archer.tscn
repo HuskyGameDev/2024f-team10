@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcrv187u8p7en"]
+[gd_scene load_steps=9 format=3 uid="uid://dcrv187u8p7en"]
 
 [ext_resource type="Script" path="res://scripts/archer.gd" id="1_mtf6k"]
 [ext_resource type="ArrayMesh" uid="uid://x03i1sxsocoa" path="res://assets/TroopOrcHair2.obj" id="2_c146u"]
 [ext_resource type="ArrayMesh" uid="uid://42yhdxsvs44j" path="res://assets/bow.obj" id="3_e1xt1"]
 [ext_resource type="ArrayMesh" uid="uid://blosm14cyb38j" path="res://assets/quiver.obj" id="4_xvvon"]
+[ext_resource type="Script" path="res://scripts/health_bar_3d.gd" id="5_0qdlr"]
+[ext_resource type="Script" path="res://scripts/HealthBar2D.gd" id="6_p6buh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfw2q"]
 
@@ -54,6 +56,25 @@ mesh = ExtResource("3_e1xt1")
 [node name="Quiver" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0.00491193, -0.585566, 0.620339)
 mesh = ExtResource("4_xvvon")
+
+[node name="HealthBar3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+script = ExtResource("5_0qdlr")
+
+[node name="SubViewport" type="SubViewport" parent="HealthBar3D"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(153, 30)
+render_target_update_mode = 4
+
+[node name="HealthBar2D" type="ProgressBar" parent="HealthBar3D/SubViewport"]
+offset_right = 150.0
+offset_bottom = 27.0
+max_value = 50.0
+value = 50.0
+show_percentage = false
+script = ExtResource("6_p6buh")
 
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]

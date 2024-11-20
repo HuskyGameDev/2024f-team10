@@ -32,7 +32,7 @@ func _path_change(value):
 	pathValue = value
 	pass
 
-func _on_pressed(value):#Emits signle to emeraldDeduction in emerald_counter.gd
+func _on_pressed(value):#Emits sigal to checkEmerald in emerald_counter.gd
 	var cost : int = 0
 	match value:
 		1:
@@ -57,7 +57,7 @@ func _on_pressed(value):#Emits signle to emeraldDeduction in emerald_counter.gd
 			pass
 	
 	pass
-	#Called by signal enoughEmerald in emerald_counter.gd
+	#Called by signal enoughEmerald in checkEmerald in emerald_counter.gd
 	#Emits signal to game.gd to spawn troops
 func costCheck(tfvalue, troopVal, troopNum):
 	if tfvalue == true:

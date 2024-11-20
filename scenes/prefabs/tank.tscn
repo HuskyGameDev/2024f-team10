@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bns0a3tv7bj8x"]
+[gd_scene load_steps=7 format=3 uid="uid://bns0a3tv7bj8x"]
 
 [ext_resource type="Script" path="res://scripts/melee_orc.gd" id="1_c1imw"]
 [ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_so5lq"]
+[ext_resource type="Script" path="res://scripts/health_bar_3d.gd" id="3_etd87"]
+[ext_resource type="Script" path="res://scripts/HealthBar2D.gd" id="4_43baa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6mhaa"]
 radius = 1.0
@@ -41,6 +43,25 @@ autostart = true
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="HealthBar3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+script = ExtResource("3_etd87")
+
+[node name="SubViewport" type="SubViewport" parent="HealthBar3D"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(153, 30)
+render_target_update_mode = 4
+
+[node name="HealthBar2D" type="ProgressBar" parent="HealthBar3D/SubViewport"]
+offset_right = 150.0
+offset_bottom = 27.0
+max_value = 500.0
+value = 500.0
+show_percentage = false
+script = ExtResource("4_43baa")
 
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]

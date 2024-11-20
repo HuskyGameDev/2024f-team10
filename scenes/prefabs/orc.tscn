@@ -48,18 +48,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 billboard = 1
 script = ExtResource("3_tuy82")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HealthBar3D"]
-offset_right = 153.0
-offset_bottom = 30.0
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="HealthBar3D/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="HealthBar3D"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(153, 30)
 render_target_update_mode = 4
 
-[node name="HealthBar2D" type="ProgressBar" parent="HealthBar3D/SubViewportContainer/SubViewport"]
+[node name="HealthBar2D" type="ProgressBar" parent="HealthBar3D/SubViewport"]
 offset_right = 150.0
 offset_bottom = 27.0
 value = 100.0

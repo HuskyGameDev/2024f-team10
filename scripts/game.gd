@@ -1,6 +1,9 @@
 extends Node3D
 
-@export var Orc2: PackedScene
+@export var Orc: PackedScene
+@export var meleeOrc: PackedScene
+@export var rangeOrc: PackedScene
+@export var tankOrc: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,7 +36,7 @@ func mob_spawn(troopId):
 	match troopId:
 		1:
 			print("Orc Spawn: " + str(spawn_position))
-			var orc = Orc2.instantiate()
+			var orc = Orc.instantiate()
 			# Set a unique position for each mob by randomizing the progress ratio
 			
 			# Initialize mob with its unique spawn position
@@ -43,15 +46,41 @@ func mob_spawn(troopId):
 			add_child(orc)
 			pass
 			
-		2:
+		2:#meleeOrc
 			print("Melee Spawn")
-
+			print("Orc Spawn: " + str(spawn_position))
+			var orc = meleeOrc.instantiate()
+			# Set a unique position for each mob by randomizing the progress ratio
+			
+			# Initialize mob with its unique spawn position
+			orc.initialize(spawn_position, 0)
+			# Add mob to the scene
+			print("Orc Position" + str(orc.position))
+			add_child(orc)
 			pass
-		3:
+			
+		3:#rangeOrc
 			print("Range Spawn")
-
+			print("Orc Spawn: " + str(spawn_position))
+			var orc = rangeOrc.instantiate()
+			# Set a unique position for each mob by randomizing the progress ratio
+			
+			# Initialize mob with its unique spawn position
+			orc.initialize(spawn_position, 0)
+			# Add mob to the scene
+			print("Orc Position" + str(orc.position))
+			add_child(orc)
 			pass
-		4:
+			
+		4:#tankOrc
 			print("Heavy Spawn")
-
+			print("Orc Spawn: " + str(spawn_position))
+			var orc = tankOrc.instantiate()
+			# Set a unique position for each mob by randomizing the progress ratio
+			
+			# Initialize mob with its unique spawn position
+			orc.initialize(spawn_position, 0)
+			# Add mob to the scene
+			print("Orc Position" + str(orc.position))
+			add_child(orc)
 			pass
