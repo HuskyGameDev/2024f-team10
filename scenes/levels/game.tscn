@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cq74dp3td8yax"]
+[gd_scene load_steps=27 format=3 uid="uid://cq74dp3td8yax"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_sulls"]
 [ext_resource type="PackedScene" uid="uid://cb3d50k44xdr1" path="res://scenes/prefabs/orc.tscn" id="2_cegw1"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://c2vcf2wfbkhy4" path="res://scenes/prefabs/mortar_tower.tscn" id="10_ftmqu"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_871wk"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ln582"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pv8rd"]
 shader = ExtResource("4_lhlni")
@@ -148,6 +150,15 @@ metadata/_edit_use_anchors_ = true
 [node name="HeavyLabel" parent="GUI/UnitBar" index="11"]
 metadata/_edit_use_anchors_ = true
 
+[node name="Button" parent="GUI/pathSelector" index="1"]
+button_group = SubResource("ButtonGroup_ln582")
+
+[node name="Button2" parent="GUI/pathSelector" index="2"]
+button_group = SubResource("ButtonGroup_ln582")
+
+[node name="Button3" parent="GUI/pathSelector" index="3"]
+button_group = SubResource("ButtonGroup_ln582")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pia4t")
 
@@ -230,3 +241,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.381559, 3)
 [editable path="GUI/emeraldCounter"]
 [editable path="GUI/Multiplier"]
 [editable path="GUI/UnitBar"]
+[editable path="GUI/pathSelector"]

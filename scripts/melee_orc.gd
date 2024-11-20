@@ -37,6 +37,7 @@ func attack(target : StaticBody3D):
 
 func damage(amount : float):
 	currentHealth -= amount
+	$HealthBar3D.update(currentHealth, MAX_HEALTH)
 
 # called every 0.1 seconds
 func _on_regen_timer_timeout() -> void:
