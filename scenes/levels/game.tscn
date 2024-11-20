@@ -230,8 +230,9 @@ shape = SubResource("BoxShape3D_elt44")
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 mesh = SubResource("BoxMesh_r37bp")
 
-[node name="Orc2" parent="." instance=ExtResource("2_cegw1")]
+[node name="Orc2" parent="." node_paths=PackedStringArray("Path") instance=ExtResource("2_cegw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.506827, 3.3918, 3)
+Path = NodePath("../SpawnPath/SpawnLocation")
 
 [node name="Tower2" parent="." instance=ExtResource("9_g2tpr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12233, 0.397089, 3)
