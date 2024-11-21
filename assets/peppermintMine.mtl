@@ -1,20 +1,21 @@
 # 3ds Max Wavefront OBJ Exporter v0.99 - (c)2007 guruware
-# File Created: 06.11.2024 18:48:04
+# File Created: 20.11.2024 21:46:37
 
 newmtl Material__25
-	Kd 0.5000 0.5000 0.5000
+	Kd 0.4298 0.0492 0.0145
 	Ks 1.0000 1.0000 1.0000
 	Tr 0.0000
 	d 1.0000
 	Tf 1.0000 1.0000 1.0000
-	Pr 0.0000
+	Pr 0.9106
 	Pm 0.0000
 	Pc 0.0000
 	Pcr 0.0000
-	Ni 1.5200
+	Ni 1.6200
 	Ke 0.0000 0.0000 0.0000
 	illum 2
-	map_Kd -bm 0.0000 Map__3_Map_Output_Selector.tga
+	bump C:\Program Files\Autodesk\3ds Max 2025\Maps\Finishes.Flooring.Wood.Plank.Beech.jpg
+	map_bump C:\Program Files\Autodesk\3ds Max 2025\Maps\Finishes.Flooring.Wood.Plank.Beech.jpg
 
 newmtl Material__26
 	Kd 0.5000 0.5000 0.5000
@@ -32,6 +33,20 @@ newmtl Material__26
 	map_Kd -bm 0.0000 Map__22_OSL__Multiply__color_.tga
 	bump C:\Program Files\Autodesk\3ds Max 2025\Maps\Concrete.Cast-In-Place.Flat.Broom.Grey.bump.jpg
 	map_bump C:\Program Files\Autodesk\3ds Max 2025\Maps\Concrete.Cast-In-Place.Flat.Broom.Grey.bump.jpg
+
+newmtl Material__27
+	Kd 0.3083 0.0353 0.0104
+	Ks 0.6000 0.6000 0.6000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.3100
+	Pm 0.0000
+	Pc 1.0000
+	Pcr 0.1200
+	Ni 1.4000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
 
 newmtl wire_078164043
 	Ns 32
