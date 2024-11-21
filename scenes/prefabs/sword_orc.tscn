@@ -20,8 +20,8 @@ MAX_HEALTH = 150.0
 currentHealth = 150.0
 healthRegen = 1.0
 attackDmg = 5.0
-attackSpeed = 1.0
-attackRange = 0.3
+attackSpeed = 2.0
+attackRange = 0.2
 
 [node name="Hitbox" type="CollisionShape3D" parent="." groups=["Orc Troop"]]
 shape = SubResource("CapsuleShape3D_gfw2q")

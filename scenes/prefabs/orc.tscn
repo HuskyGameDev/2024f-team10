@@ -19,7 +19,7 @@ MAX_HEALTH = 100.0
 currentHealth = 100.0
 healthRegen = 1.0
 attackDmg = 2.0
-attackSpeed = 0.6
+attackSpeed = 2.0
 attackRange = 0.2
 
 [node name="Hitbox" type="CollisionShape3D" parent="." groups=["Orc Troop"]]

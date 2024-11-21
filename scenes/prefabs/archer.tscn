@@ -19,9 +19,9 @@ axis_lock_angular_z = true
 script = ExtResource("1_mtf6k")
 MAX_HEALTH = 50.0
 currentHealth = 50.0
-attackDmg = 5.0
+attackDmg = 3.0
 attackSpeed = 1.8
-attackRange = 0.7
+attackRange = 0.35
 
 [node name="Hitbox" type="CollisionShape3D" parent="." groups=["Orc Troop"]]
 shape = SubResource("CapsuleShape3D_gfw2q")
