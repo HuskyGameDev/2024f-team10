@@ -52,7 +52,7 @@ func _physics_process(delta):
 	#if Path.get_progress_ratio() >= 0.99:
 	#	Path.queue_free()
 	#	queue_free()
-	print(currentPath)
+	#print(currentPath)
 	if ((cur_tar == null) && (path1Array.size() > currentPathPOS) && (currentPath == 1)):
 		var PATHPOS = path1Array[currentPathPOS]
 		currentPathPOS += 1

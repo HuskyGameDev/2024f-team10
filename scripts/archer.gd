@@ -4,6 +4,19 @@ extends Unit
 @onready var regen_timer: Timer = $RegenTimer
 @onready var range: CollisionShape3D = $DetectionRange/Range
 
+@onready var path1 = $"../Path1".get_curve()
+@onready var path1Array = path1.get_baked_points()
+
+@onready var path2 = $"../Path2".get_curve()
+@onready var path2Array = path2.get_baked_points()
+
+@onready var path3 = $"../Path3".get_curve()
+@onready var path3Array = path3.get_baked_points()
+
+var currentPath = 0
+
+var currentPathPOS = 0
+
 var arrow : PackedScene = preload("res://scenes/prefabs/arrow.tscn")
 
 var canAttack : bool
@@ -40,6 +53,34 @@ func _process(delta: float) -> void:
 	else:
 		for i in get_node("ArrowContainer").get_child_count():
 			get_node("ArrowContainer").get_child(i).queue_free()
+			
+	if ((cur_tar == null) && (path1Array.size() > currentPathPOS) && (currentPath == 1)):
+		var PATHPOS = path1Array[currentPathPOS]
+		currentPathPOS += 1
+		#print(currentPath)
+		#print(PATHPOS)
+		global_position = PATHPOS
+		pass
+		
+	if ((cur_tar == null) && (path1Array.size() > currentPathPOS) && (currentPath == 2)):
+		var PATHPOS = path2Array[currentPathPOS]
+		currentPathPOS += 1
+		print("PATH 2222222222222222")
+		#print(PATHPOS)
+		global_position = PATHPOS
+		pass
+		
+	if ((cur_tar == null) && (path1Array.size() > currentPathPOS) && (currentPath == 3)):
+		var PATHPOS = path3Array[currentPathPOS]
+		currentPathPOS += 1
+		#print(currentPath)
+		#print(PATHPOS)
+		global_position = PATHPOS
+		pass
+		
+	if (((currentPath == 1) && (path1Array.size() == currentPathPOS)) || ((currentPath == 2) && (path2Array.size() == currentPathPOS)) ||((currentPath == 3) && (path3Array.size() == currentPathPOS))):
+		queue_free()
+		pass
 
 
 # called every 0.1 seconds
@@ -76,8 +117,9 @@ func _on_detection_range_body_exited(body: Node3D) -> void:
 		targets.erase(body)
 		choose_target(targets)
 
-func initialize(start_position, yRotation):
+func initialize(start_position, yRotation, path):
 	var vec3 = Vector3(0, yRotation, 0)
 	set_rotation_degrees(vec3)
+	currentPath = path
 	print(str(get_rotation()))
 	set_position(start_position)
