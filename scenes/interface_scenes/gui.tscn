@@ -51,9 +51,6 @@ button_group = SubResource("ButtonGroup_ttx31")
 [connection signal="multi" from="Multiplier" to="UnitBar" method="_multiplier_change"]
 [connection signal="emeraldDeduction" from="UnitBar" to="emeraldCounter" method="checkEmerald"]
 [connection signal="pathOutput" from="pathSelector" to="UnitBar" method="_path_change"]
-[connection signal="pressed" from="pathSelector/Button" to="pathSelector" method="_on_pressed" binds= [1]]
-[connection signal="pressed" from="pathSelector/Button2" to="pathSelector" method="_on_pressed" binds= [2]]
-[connection signal="pressed" from="pathSelector/Button3" to="pathSelector" method="_on_pressed" binds= [3]]
 
 [editable path="emeraldCounter"]
 [editable path="Multiplier"]
