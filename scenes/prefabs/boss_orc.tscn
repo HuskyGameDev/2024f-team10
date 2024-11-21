@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bc5mhvn4e7113"]
 
 [ext_resource type="Script" path="res://scripts/boss_orc.gd" id="1_puctb"]
-[ext_resource type="ArrayMesh" uid="uid://lk3wykny0723" path="res://assets/TroopOrcHair1.obj" id="2_endpl"]
+[ext_resource type="ArrayMesh" uid="uid://meo1dpp0pkn4" path="res://assets/MAINORC.obj" id="2_0h0jf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_neth3"]
 size = Vector3(2.25916, 3.31642, 1.4558)
@@ -14,7 +14,7 @@ script = ExtResource("1_puctb")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, -0.00299644, 0.0858327, -0.00413269)
-mesh = ExtResource("2_endpl")
+mesh = ExtResource("2_0h0jf")
 
 [node name="Aim" type="Marker3D" parent="MeshInstance3D2"]
 transform = Transform3D(5.55556, 0, 0, 0, 5.55556, 0, 0, 0, 5.55556, -5.50897, 27.6126, -5.09252)
