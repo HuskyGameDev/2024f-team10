@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c1o6wltu0rotk"]
+[gd_scene load_steps=29 format=3 uid="uid://c1o6wltu0rotk"]
 
 [ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="1_wydb8"]
 [ext_resource type="Texture2D" uid="uid://c5ron6dv5qhf8" path="res://assets/materials/stylized-grass1-bl/stylized-grass1_ao.png" id="2_almmv"]
@@ -75,6 +75,13 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 28
+
+[sub_resource type="Curve3D" id="Curve3D_fdsaa"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5, 1, 5, 0, 0, 0, 0, 0, 0, 5, 1, 5, 0, 0, 0, 0, 0, 0, 5, 1, -5, 0, 0, 0, 0, 0, 0, -5, 1, -5, 0, 0, 0, 0, 0, 0, -5, 1, 5),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="Tutorial" type="Node3D"]
 transform = Transform3D(1, -0.000792832, -0.000244347, 0.000792861, 1, 0.000116307, 0.000244253, -0.000116505, 1, 0, 0, 0)
@@ -13745,6 +13752,12 @@ curve = SubResource("Curve3D_dom8t")
 [node name="Path3" type="Path3D" parent="."]
 transform = Transform3D(1, 6.67022e-12, 5.82077e-11, 3.5716e-10, 1, 4.36557e-11, 0, 4.36557e-11, 1, 0, 0, 0)
 curve = SubResource("Curve3D_58voa")
+
+[node name="SpawnPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_fdsaa")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 1, 5)
 
 [editable path="GUI"]
 [editable path="GUI/emeraldCounter"]
