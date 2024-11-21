@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cu2shrkanwqvy"]
+
+[node name="Lose" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 469.0
+offset_top = 231.0
+offset_right = 695.0
+offset_bottom = 305.0
+text = "Restart"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 471.0
+offset_top = 380.0
+offset_right = 697.0
+offset_bottom = 454.0
+text = "Quit"

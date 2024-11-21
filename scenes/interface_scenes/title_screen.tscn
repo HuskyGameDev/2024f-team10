@@ -11,11 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pbqws")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 649.0
-
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
 offset_left = 470.0
