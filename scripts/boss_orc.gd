@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-var bullet : PackedScene = preload("res://scenes/prefabs/invis_bullet.tscn")
+var bullet : PackedScene = preload("res://scenes/prefabs/bullet.tscn")
 var health : int = 500
 var damage : int = 20
 var targets : Array = []
@@ -17,6 +17,7 @@ func shoot() -> void:
 func take_damage(dmg : float):
 	health -= dmg
 	if health <= 0:
+		# LOSE THE GAME
 		queue_free()
 
 func _process(delta):
