@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c2ekja5v0a1l6"
+path="res://.godot/imported/mainenemytower.obj-aea3f9da2698845dc9683a9d51b0b13a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mainenemytower.obj-aea3f9da2698845dc9683a9d51b0b13a.mesh"]
+
+source_file="res://assets/mainenemytower.obj"
+dest_files=["res://.godot/imported/mainenemytower.obj-aea3f9da2698845dc9683a9d51b0b13a.mesh", "res://.godot/imported/mainenemytower.obj-aea3f9da2698845dc9683a9d51b0b13a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
