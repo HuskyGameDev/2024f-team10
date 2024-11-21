@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc2u7tm7twa1p"]
+[gd_scene load_steps=7 format=3 uid="uid://c08l8abkukw4e"]
 
 [ext_resource type="Script" path="res://scripts/boss_tower.gd" id="1_4efre"]
-[ext_resource type="ArrayMesh" uid="uid://v0ilfu1sriju" path="res://assets/tower1.obj" id="2_k4k7j"]
+[ext_resource type="ArrayMesh" uid="uid://c2ekja5v0a1l6" path="res://assets/mainenemytower.obj" id="2_7fwsp"]
 [ext_resource type="Script" path="res://scripts/health_bar_3d.gd" id="3_c11fb"]
 [ext_resource type="Script" path="res://scripts/HealthBar2D.gd" id="4_dv8r2"]
 
@@ -15,8 +15,8 @@ radius = 0.604747
 script = ExtResource("1_4efre")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0.991615, 0.0858327, 0.924894)
-mesh = ExtResource("2_k4k7j")
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, -0.008385, 0.0858327, -0.075106)
+mesh = ExtResource("2_7fwsp")
 
 [node name="Aim" type="Marker3D" parent="MeshInstance3D2"]
 transform = Transform3D(5.55556, 0, 0, 0, 5.55556, 0, 0, 0, 5.55556, -5.50897, 37.9363, -5.09252)
