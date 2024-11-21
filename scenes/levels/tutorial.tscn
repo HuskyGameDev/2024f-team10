@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c1o6wltu0rotk"]
+[gd_scene load_steps=27 format=3 uid="uid://c1o6wltu0rotk"]
 
 [ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="1_wydb8"]
 [ext_resource type="Texture2D" uid="uid://c5ron6dv5qhf8" path="res://assets/materials/stylized-grass1-bl/stylized-grass1_ao.png" id="2_almmv"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/prefabs/camera_rig.tscn" id="8_lhg15"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="9_c35o0"]
 [ext_resource type="PackedScene" uid="uid://g4at7huyhad" path="res://scenes/prefabs/road_brick.tscn" id="10_fxqii"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/boss_orc.tscn" id="10_ge682"]
+[ext_resource type="PackedScene" uid="uid://bc5mhvn4e7113" path="res://scenes/prefabs/boss_orc.tscn" id="10_ge682"]
 [ext_resource type="PackedScene" uid="uid://c2vcf2wfbkhy4" path="res://scenes/prefabs/mortar_tower.tscn" id="10_ufd8i"]
 [ext_resource type="PackedScene" uid="uid://bmofeqscvw4an" path="res://scenes/prefabs/tower.tscn" id="11_amtse"]
 [ext_resource type="PackedScene" uid="uid://bc2u7tm7twa1p" path="res://scenes/prefabs/boss_tower.tscn" id="11_lnhhr"]
@@ -54,7 +54,26 @@ uv2_world_triplanar = true
 [sub_resource type="PlaneMesh" id="PlaneMesh_i2lpu"]
 material = SubResource("StandardMaterial3D_06ks1")
 
-[sub_resource type="Curve3D" id="Curve3D_cvdcm"]
+[sub_resource type="Curve3D" id="Curve3D_vjl3p"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0304812, 0.136682, -3.48053, 0, 0, 0, 0, 0, 0, -0.0836286, -0.031167, -11.016, 0, 0, 0, 0, 0, 0, -0.0305848, -0.0305118, -16.6339, 0, 0, 0, 0, 0, 0, -0.166445, -0.0298248, -21.615, 0, 0, 0, 0, 0, 0, -0.167727, -0.0292131, -26.8654, 0, 0, 0, 0, 0, 0, -0.30359, -0.0285104, -31.9812, 0, 0, 0, 0, 0, 0, -0.170358, -0.0279584, -37.6355, 0, 0, 0, 0, 0, 0, 0.366791, -0.0277423, -43.1553, 0, 0, 0, 0, 0, 0, 0.230797, -0.0269768, -48.8096, 0, 0, 0, 0, 0, 0, 0.36393, -0.0263777, -54.8678, 0, 0, 0, 0, 0, 0, -0.175751, -0.0253862, -59.7142, 0, 0, 0, 0, 0, 0, -0.04262, -0.0247715, -65.907),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 13
+
+[sub_resource type="Curve3D" id="Curve3D_dom8t"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.296757, 0.000713728, -4.1136, 0, 0, 0, 0, 0, 0, -1.91266, 0.00218276, -5.72872, 0, 0, 0, 0, 0, 0, -4.47086, 0.00435191, -6.93972, 0, 0, 0, 0, 0, 0, -6.89448, 0.00644568, -8.42002, 0, 0, 0, 0, 0, 0, -10.5298, 0.00953144, -10.1693, 0, 0, 0, 0, 0, 0, -14.0305, 0.0125105, -11.9186, 0, 0, 0, 0, 0, 0, -18.0697, 0.0159007, -13.5331, 0, 0, 0, 0, 0, 0, -18.6087, 0.0165786, -15.687, 0, 0, 0, 0, 0, 0, -18.2055, 0.0165878, -18.5142, 0, 0, 0, 0, 0, 0, -18.341, 0.0170866, -21.8798, 0, 0, 0, 0, 0, 0, -17.9379, 0.0171428, -25.111, 0, 0, 0, 0, 0, 0, -18.0735, 0.0177201, -29.1497, 0, 0, 0, 0, 0, 0, -18.4783, 0.0184638, -32.7845, 0, 0, 0, 0, 0, 0, -18.4792, 0.0188872, -36.4194, 0, 0, 0, 0, 0, 0, -18.3452, 0.0191099, -39.2466, 0, 0, 0, 0, 0, 0, -18.2113, 0.0193482, -42.2084, 0, 0, 0, 0, 0, 0, -17.9428, 0.0194641, -45.0356, 0, 0, 0, 0, 0, 0, -15.9241, 0.0182238, -48.1325, 0, 0, 0, 0, 0, 0, -12.9627, 0.0160481, -49.6141, 0, 0, 0, 0, 0, 0, -9.46281, 0.0134455, -51.0959, 0, 0, 0, 0, 0, 0, -5.02057, 0.0101271, -52.8471, 0, 0, 0, 0, 0, 0, -1.25131, 0.00726397, -53.925, 0, 0, 0, 0, 0, 0, -0.309483, 0.00678345, -56.2139, 0, 0, 0, 0, 0, 0, 0.228357, 0.00667019, -58.9066, 0, 0, 0, 0, 0, 0, 0.496429, 0.00702134, -63.7532, 0, 0, 0, 0, 0, 0, -0.177238, 0.00780597, -65.907),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 27
+
+[sub_resource type="Curve3D" id="Curve3D_58voa"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.0273365, 0.000421832, -3.44053, 0, 0, 0, 0, 0, 0, 0.779957, 9.94769e-07, -5.3255, 0, 0, 0, 0, 0, 0, 2.39502, -0.00107593, -7.07603, 0, 0, 0, 0, 0, 0, 5.08723, -0.00305382, -8.42295, 0, 0, 0, 0, 0, 0, 8.04869, -0.00526084, -9.63531, 0, 0, 0, 0, 0, 0, 10.4716, -0.00699389, -11.2514, 0, 0, 0, 0, 0, 0, 13.1639, -0.0090345, -12.0598, 0, 0, 0, 0, 0, 0, 15.856, -0.0109653, -13.8106, 0, 0, 0, 0, 0, 0, 17.2018, -0.0118288, -15.5611, 0, 0, 0, 0, 0, 0, 17.6049, -0.0117569, -18.9268, 0, 0, 0, 0, 0, 0, 18.277, -0.0118201, -22.9658, 0, 0, 0, 0, 0, 0, 18.1413, -0.0111958, -27.4084, 0, 0, 0, 0, 0, 0, 17.7366, -0.0104834, -30.774, 0, 0, 0, 0, 0, 0, 18.1396, -0.0103645, -34.5436, 0, 0, 0, 0, 0, 0, 18.408, -0.0101702, -38.0439, 0, 0, 0, 0, 0, 0, 17.734, -0.00926009, -41.2748, 0, 0, 0, 0, 0, 0, 17.1946, -0.00839399, -45.0442, 0, 0, 0, 0, 0, 0, 16.7901, -0.00779147, -47.4674, 0, 0, 0, 0, 0, 0, 14.9052, -0.00621875, -48.14, 0, 0, 0, 0, 0, 0, 11.8085, -0.0035913, -49.6202, 0, 0, 0, 0, 0, 0, 9.11569, -0.00133111, -50.6965, 0, 0, 0, 0, 0, 0, 6.42282, 0.000960455, -52.0421, 0, 0, 0, 0, 0, 0, 2.78758, 0.00401484, -53.5221, 0, 0, 0, 0, 0, 0, -0.578575, 0.0069185, -55.5407, 0, 0, 0, 0, 0, 0, -0.310075, 0.00706576, -58.6372, 0, 0, 0, 0, 0, 0, -0.176317, 0.00736682, -62.1375, 0, 0, 0, 0, 0, 0, 0.227074, 0.00728187, -64.157),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 28
 
 [node name="Tutorial" type="Node3D"]
 transform = Transform3D(1, -0.000792832, -0.000244347, 0.000792861, 1, 0.000116307, 0.000244253, -0.000116505, 1, 0, 0, 0)
@@ -984,92 +1003,100 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.00097, -4.23324e-11, 0, -4.1215e-11, 1.00097, 1.45519e-11, 5.82077e-11, 0, 1.00097, -1, -5.09317e-11, -51)
 skeleton = NodePath("../..")
 
-[node name="BossTower" parent="Bricks" instance=ExtResource("11_lnhhr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0283027, -0.0260895, -63.9973)
+[node name="Towers" type="Node" parent="."]
 
-[node name="BossOrc" parent="Bricks" instance=ExtResource("10_ge682")]
-transform = Transform3D(-0.999904, 0, -0.0138225, 0, 1, 0, 0.0138225, 0, -0.999904, -0.00803394, -0.0177672, 7.68567)
+[node name="Tower" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -0.0502299, -0.019383, -5.89681)
 
-[node name="Tower" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0502299, -0.019383, -5.89681)
+[node name="Tower2" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -14.0502, -0.019383, -17.8968)
 
-[node name="Tower2" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0502, -0.019383, -17.8968)
+[node name="Tower12" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -8.05023, -0.019383, -22.8968)
 
-[node name="Tower12" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.05023, -0.019383, -22.8968)
+[node name="Tower13" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -8.05023, -0.019383, -41.8968)
 
-[node name="Tower13" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.05023, -0.019383, -41.8968)
+[node name="Tower3" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -22.0502, -0.019383, -20.8968)
 
-[node name="Tower3" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0502, -0.019383, -20.8968)
+[node name="Tower4" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -25.0502, -0.019383, -36.8968)
 
-[node name="Tower4" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0502, -0.019383, -36.8968)
+[node name="Tower5" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -15.0502, -0.019383, -36.8968)
 
-[node name="Tower5" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0502, -0.019383, -36.8968)
+[node name="Tower6" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 13.9498, -0.019383, -25.8968)
 
-[node name="Tower6" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9498, -0.019383, -25.8968)
+[node name="Tower14" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 21.9498, -0.019383, -33.8968)
 
-[node name="Tower14" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9498, -0.019383, -33.8968)
+[node name="Tower7" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 3.94977, -0.019383, -34.8968)
 
-[node name="Tower7" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.94977, -0.019383, -34.8968)
+[node name="Tower8" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -5.05023, -0.019383, -51.8968)
 
-[node name="Tower8" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05023, -0.019383, -51.8968)
+[node name="Tower9" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 2.94977, -0.019383, -59.8968)
 
-[node name="Tower9" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94977, -0.019383, -59.8968)
+[node name="Tower10" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 19.9498, -0.019383, -41.8968)
 
-[node name="Tower10" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9498, -0.019383, -41.8968)
+[node name="Tower11" parent="Towers" instance=ExtResource("11_amtse")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -15.0502, -0.019383, -51.8968)
 
-[node name="Tower11" parent="Bricks" instance=ExtResource("11_amtse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0502, -0.019383, -51.8968)
+[node name="ResourceTower" parent="Towers" instance=ExtResource("16_eu8j7")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -21.522, -0.0399879, -36.6379)
 
-[node name="ResourceTower" parent="Bricks" instance=ExtResource("16_eu8j7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.522, -0.0399879, -36.6379)
+[node name="ResourceTower2" parent="Towers" instance=ExtResource("16_eu8j7")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 14.5546, -0.0092698, -18.4801)
 
-[node name="ResourceTower2" parent="Bricks" instance=ExtResource("16_eu8j7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5546, -0.0092698, -18.4801)
+[node name="ResourceTower3" parent="Towers" instance=ExtResource("16_eu8j7")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -0.209294, -0.0246975, -50.4158)
 
-[node name="ResourceTower3" parent="Bricks" instance=ExtResource("16_eu8j7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.209294, -0.0246975, -50.4158)
+[node name="Mortar_Tower" parent="Towers" instance=ExtResource("10_ufd8i")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -10.2977, -0.0284255, -13.776)
 
-[node name="Mortar_Tower" parent="Bricks" instance=ExtResource("10_ufd8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2977, -0.0284255, -13.776)
+[node name="Mortar_Tower3" parent="Towers" instance=ExtResource("10_ufd8i")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -3.29768, -0.0284255, -28.776)
 
-[node name="Mortar_Tower3" parent="Bricks" instance=ExtResource("10_ufd8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29768, -0.0284255, -28.776)
+[node name="Mortar_Tower4" parent="Towers" instance=ExtResource("10_ufd8i")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 14.7023, -0.0284255, -34.776)
 
-[node name="Mortar_Tower4" parent="Bricks" instance=ExtResource("10_ufd8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7023, -0.0284255, -34.776)
+[node name="Mortar_Tower5" parent="Towers" instance=ExtResource("10_ufd8i")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 3.70232, -0.0284255, -43.776)
 
-[node name="Mortar_Tower5" parent="Bricks" instance=ExtResource("10_ufd8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.70232, -0.0284255, -43.776)
+[node name="Mortar_Tower7" parent="Towers" instance=ExtResource("10_ufd8i")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 12.7023, -0.0284255, -44.776)
 
-[node name="Mortar_Tower7" parent="Bricks" instance=ExtResource("10_ufd8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7023, -0.0284255, -44.776)
+[node name="Mortar_Tower8" parent="Towers" instance=ExtResource("10_ufd8i")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, -0.297683, -0.0284255, -55.776)
 
-[node name="Mortar_Tower8" parent="Bricks" instance=ExtResource("10_ufd8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297683, -0.0284255, -55.776)
+[node name="Mortar_Tower6" parent="Towers" instance=ExtResource("10_ufd8i")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 4.70232, -0.0284255, -15.776)
 
-[node name="Mortar_Tower6" parent="Bricks" instance=ExtResource("10_ufd8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.70232, -0.0284255, -15.776)
+[node name="Mortar_Tower2" parent="Towers" instance=ExtResource("10_ufd8i")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 21.9541, -0.00356631, -19.8796)
 
-[node name="Mortar_Tower2" parent="Bricks" instance=ExtResource("10_ufd8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9541, -0.00356631, -19.8796)
+[node name="BossTower" parent="Towers" instance=ExtResource("11_lnhhr")]
+transform = Transform3D(1, -7.31788e-11, 2.91038e-11, -1.3717e-11, 1, -7.27596e-12, 0, 0, 1, 0.0283027, -0.0260895, -63.9973)
 
-[node name="Path3D" type="Path3D" parent="."]
-curve = SubResource("Curve3D_cvdcm")
+[node name="BossOrc" parent="." instance=ExtResource("10_ge682")]
+transform = Transform3D(-0.9999, 0.00079286, -0.0140667, 0.000791146, 0.999999, 0.000127448, 0.0140668, 0.000116311, -0.9999, -0.00627041, -0.0186087, 7.27769)
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+[node name="Path1" type="Path3D" parent="."]
 transform = Transform3D(1, 6.66134e-12, 0, 6.61213e-11, 1, 7.27596e-12, 0, 7.27596e-12, 1, 0, 0, 0)
+curve = SubResource("Curve3D_vjl3p")
+
+[node name="Path2" type="Path3D" parent="."]
+transform = Transform3D(1, 6.66667e-12, 2.91038e-11, 2.40744e-10, 1, 2.91038e-11, 0, 2.91038e-11, 1, 0, 0, 0)
+curve = SubResource("Curve3D_dom8t")
+
+[node name="Path3" type="Path3D" parent="."]
+transform = Transform3D(1, 6.67022e-12, 5.82077e-11, 3.5716e-10, 1, 4.36557e-11, 0, 4.36557e-11, 1, 0, 0, 0)
+curve = SubResource("Curve3D_58voa")
 
 [editable path="GUI"]
 [editable path="GUI/emeraldCounter"]
