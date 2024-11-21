@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cq74dp3td8yax"]
+[gd_scene load_steps=32 format=3 uid="uid://cq74dp3td8yax"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_sulls"]
 [ext_resource type="PackedScene" uid="uid://cb3d50k44xdr1" path="res://scenes/prefabs/orc.tscn" id="2_cegw1"]
@@ -80,6 +80,8 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_thgrp"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_sulls")
@@ -232,7 +234,7 @@ mesh = SubResource("BoxMesh_r37bp")
 
 [node name="Orc2" parent="." node_paths=PackedStringArray("Path") instance=ExtResource("2_cegw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.506827, 3.3918, 3)
-Path = NodePath("../SpawnPath/SpawnLocation")
+Path = NodePath("../Path3D/PathFollow3D")
 
 [node name="Tower2" parent="." instance=ExtResource("9_g2tpr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12233, 0.397089, 3)
@@ -245,6 +247,12 @@ transform = Transform3D(-0.995459, 0, 0.0951113, 0, 0.999999, 0, -0.0951113, 0, 
 
 [node name="Tower" parent="." instance=ExtResource("10_ftmqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.381559, 3)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.567208, -2.65921, -2.06543)
+curve = SubResource("Curve3D_thgrp")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
 
 [connection signal="spawnTroop" from="GUI/UnitBar" to="." method="_on_mob_spawn"]
 
