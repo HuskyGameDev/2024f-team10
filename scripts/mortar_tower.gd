@@ -2,7 +2,7 @@ extends StaticBody3D
 
 var bullet : PackedScene = preload("res://scenes/prefabs/mortar_bullet.tscn")
 var health : int = 100
-var damage : int = 5
+var damage : int = 12
 var targets : Array = []
 var cur_tar : Unit
 var can_shoot : bool = true

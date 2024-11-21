@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var target : Unit
 var speed : int = 20
-var damage : int = 5
+var damage : int = 15
 
 func _physics_process(delta):
 	if is_instance_valid(target):
