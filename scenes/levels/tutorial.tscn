@@ -13773,6 +13773,9 @@ curve = SubResource("Curve3D_fdsaa")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 1, 5)
 
 [connection signal="spawnTroop" from="GUI/UnitBar" to="." method="_on_mob_spawn"]
+[connection signal="death" from="Towers/ResourceTower" to="GUI/emeraldCounter" method="addEmerald"]
+[connection signal="death" from="Towers/ResourceTower2" to="GUI/emeraldCounter" method="addEmerald"]
+[connection signal="death" from="Towers/ResourceTower3" to="GUI/emeraldCounter" method="addEmerald"]
 
 [editable path="GUI"]
 [editable path="GUI/emeraldCounter"]

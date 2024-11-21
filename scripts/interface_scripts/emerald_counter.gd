@@ -42,7 +42,3 @@ func addEmerald(value):
 	var label = get_node("emeraldLabel")
 	label.text = str(emeraldCount)
 	pass
-
-
-func _on_resource_tower_destroyed():
-	addEmerald(20)
