@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c1o6wltu0rotk"]
+[gd_scene load_steps=28 format=3 uid="uid://c1o6wltu0rotk"]
 
 [ext_resource type="PackedScene" uid="uid://cerl73dej0wlf" path="res://scenes/interface_scenes/gui.tscn" id="1_wydb8"]
 [ext_resource type="Texture2D" uid="uid://c5ron6dv5qhf8" path="res://assets/materials/stylized-grass1-bl/stylized-grass1_ao.png" id="2_almmv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://pnv7nl7fdxdr" path="res://assets/materials/stylized-grass1-bl/stylized-grass1_height.png" id="4_bj5lu"]
 [ext_resource type="Texture2D" uid="uid://ckq6pkyrmfqgi" path="res://assets/materials/stylized-grass1-bl/stylized-grass1_metallic.png" id="5_6ro22"]
 [ext_resource type="Texture2D" uid="uid://beijb5qsh5mkn" path="res://assets/materials/stylized-grass1-bl/stylized-grass1_roughness.png" id="6_nfvdj"]
+[ext_resource type="PackedScene" uid="uid://epy08dhbnqp" path="res://scenes/prefabs/camera_rig.tscn" id="8_lhg15"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="9_c35o0"]
 [ext_resource type="PackedScene" path="res://scenes/prefabs/road_brick.tscn" id="10_fxqii"]
 [ext_resource type="PackedScene" uid="uid://bc5mhvn4e7113" path="res://scenes/prefabs/boss_orc.tscn" id="10_ge682"]
@@ -77,6 +78,9 @@ point_count = 28
 
 [node name="Tutorial" type="Node3D"]
 transform = Transform3D(1, -0.000792832, -0.000244347, 0.000792861, 1, 0.000116307, 0.000244253, -0.000116505, 1, 0, 0, 0)
+
+[node name="CameraRig" parent="." instance=ExtResource("8_lhg15")]
+transform = Transform3D(0.707107, 6.66134e-12, 0.707107, 5.09317e-11, 1, 4.36557e-11, -0.707107, 7.27596e-12, 0.707107, 3.90941e-11, 1.5, 0)
 
 [node name="GUI" parent="." instance=ExtResource("1_wydb8")]
 metadata/_edit_use_anchors_ = true
