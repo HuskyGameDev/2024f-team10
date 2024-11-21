@@ -11,6 +11,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pbqws")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
 offset_left = 470.0
@@ -26,11 +31,6 @@ offset_top = 380.0
 offset_right = 697.0
 offset_bottom = 454.0
 text = "Quit"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 649.0
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

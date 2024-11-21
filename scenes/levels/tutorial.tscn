@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bc5mhvn4e7113" path="res://scenes/prefabs/boss_orc.tscn" id="10_ge682"]
 [ext_resource type="PackedScene" uid="uid://c2vcf2wfbkhy4" path="res://scenes/prefabs/mortar_tower.tscn" id="10_ufd8i"]
 [ext_resource type="PackedScene" uid="uid://bmofeqscvw4an" path="res://scenes/prefabs/tower.tscn" id="11_amtse"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/boss_tower.tscn" id="11_lnhhr"]
+[ext_resource type="PackedScene" uid="uid://c08l8abkukw4e" path="res://scenes/prefabs/boss_tower.tscn" id="11_lnhhr"]
 [ext_resource type="PackedScene" uid="uid://d02eu35fojsws" path="res://scenes/prefabs/resource_tower.tscn" id="16_eu8j7"]
 [ext_resource type="ArrayMesh" uid="uid://6goj8e7ip56e" path="res://assets/single_lollipop.obj" id="17_hy6sw"]
 
