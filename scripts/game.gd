@@ -22,6 +22,7 @@ func _on_mob_spawn(troopId, spawnCount, pathVal):
 	for i in range(spawnCount):
 		# Get a random point along the path for each mo
 		#print(pathVal)
+		print("SPAWNING")
 		mob_spawn(troopId, pathVal)
 		await get_tree().create_timer(.1).timeout
 		
