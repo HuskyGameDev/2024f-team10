@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bns0a3tv7bj8x"]
 
 [ext_resource type="Script" path="res://scripts/melee_orc.gd" id="1_c1imw"]
-[ext_resource type="ArrayMesh" uid="uid://bm7ji3coq3o07" path="res://assets/unfinishedTroopOrc.obj" id="2_so5lq"]
+[ext_resource type="ArrayMesh" uid="uid://d1a7a6axx3rnq" path="res://assets/TroopOrcHair3.obj" id="2_u5tq7"]
 [ext_resource type="Script" path="res://scripts/health_bar_3d.gd" id="3_etd87"]
 [ext_resource type="Script" path="res://scripts/HealthBar2D.gd" id="4_43baa"]
 
@@ -28,7 +28,7 @@ shape = SubResource("CapsuleShape3D_6mhaa")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.118189, 0, -6.32913e-09, 0, 0.0694266, 0, 1.03324e-08, 0, -0.0723969, 0, -1.45051, 0)
-mesh = ExtResource("2_so5lq")
+mesh = ExtResource("2_u5tq7")
 
 [node name="DetectionRange" type="Area3D" parent="." groups=["Tower Troop"]]
 
