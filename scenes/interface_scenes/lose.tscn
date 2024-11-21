@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu2shrkanwqvy"]
+[gd_scene load_steps=3 format=3 uid="uid://cu2shrkanwqvy"]
 
-[ext_resource type="Texture2D" uid="uid://hpwc627ww8vp" path="res://assets/battleofminis.jpg" id="1_k6nal"]
+[ext_resource type="Script" path="res://scenes/interface_scenes/lose.gd" id="1_gw71l"]
+[ext_resource type="Texture2D" uid="uid://cm5ta5gbqabvj" path="res://assets/battleofminis.jpg" id="1_k6nal"]
 
 [node name="Lose" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gw71l")
 
 [node name="Battleofminis" type="Sprite2D" parent="."]
 position = Vector2(574, 332)
@@ -37,3 +39,6 @@ offset_top = 82.0
 offset_right = 629.0
 offset_bottom = 113.0
 text = "You Lose!"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

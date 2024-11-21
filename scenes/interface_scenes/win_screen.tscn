@@ -1,14 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfbs3l1c0qoni"]
+[gd_scene load_steps=3 format=3 uid="uid://dfbs3l1c0qoni"]
 
-[ext_resource type="Texture2D" uid="uid://hpwc627ww8vp" path="res://assets/battleofminis.jpg" id="1_q8frv"]
+[ext_resource type="Script" path="res://scenes/interface_scenes/win_screen.gd" id="1_2io7o"]
+[ext_resource type="Texture2D" uid="uid://cm5ta5gbqabvj" path="res://assets/battleofminis.jpg" id="1_q8frv"]
 
-[node name="Win Screen" type="Control"]
+[node name="Win" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2io7o")
 
 [node name="Battleofminis" type="Sprite2D" parent="."]
 position = Vector2(589, 324)
@@ -41,3 +43,6 @@ offset_right = 50.0
 offset_bottom = 114.0
 grow_horizontal = 2
 text = "You Win!"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
