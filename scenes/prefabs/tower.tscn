@@ -33,6 +33,13 @@ shape = SubResource("SphereShape3D_stqfw")
 
 [node name="FireRate" type="Timer" parent="."]
 
+[node name="Spawner" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="SpawnStarter" type="Timer" parent="."]
+
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
 [connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]
+[connection signal="timeout" from="Spawner" to="." method="_on_spawner_timeout"]
+[connection signal="timeout" from="SpawnStarter" to="." method="_on_spawn_starter_timeout"]

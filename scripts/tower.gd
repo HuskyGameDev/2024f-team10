@@ -6,6 +6,8 @@ var damage : int = 5
 var targets : Array = []
 var cur_tar : Unit
 var can_shoot : bool = true
+var can_spawn : bool = true
+var can_start : bool = false
 
 func shoot() -> void:
 	var temp_bullet : CharacterBody3D = bullet.instantiate()
@@ -20,6 +22,9 @@ func take_damage(dmg : float):
 		queue_free()
 
 func _process(delta):
+	if(can_start && can_spawn):
+		can_spawn = false
+		#spawn_troop()
 	if is_instance_valid(cur_tar):
 		if can_shoot:
 			shoot()
@@ -49,3 +54,11 @@ func _on_detection_range_body_exited(body):
 
 func _on_fire_rate_timeout() -> void:
 	can_shoot = true
+
+
+func _on_spawner_timeout() -> void:
+	can_spawn = true
+
+
+func _on_spawn_starter_timeout() -> void:
+	can_start = true
