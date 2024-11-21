@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc2u7tm7twa1p"]
+[gd_scene load_steps=7 format=3 uid="uid://c08l8abkukw4e"]
 
 [ext_resource type="Script" path="res://scripts/boss_tower.gd" id="1_4efre"]
 [ext_resource type="ArrayMesh" uid="uid://c2ekja5v0a1l6" path="res://assets/mainenemytower.obj" id="2_7fwsp"]

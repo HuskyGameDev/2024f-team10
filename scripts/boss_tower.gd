@@ -18,6 +18,7 @@ func take_damage(dmg : float):
 	health -= dmg
 	$HealthBar3D.update(health, 100)
 	if health <= 0:
+		get_tree().change_scene_to_file("res://scenes/interface_scenes/win_screen.tscn")
 		queue_free()
 
 func _process(delta):
