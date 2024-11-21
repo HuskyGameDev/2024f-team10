@@ -4,12 +4,25 @@ extends Unit
 @onready var regen_timer: Timer = $RegenTimer
 @onready var range: CollisionShape3D = $DetectionRange/Range
 
+@onready var path1 = $"../Path1".get_curve()
+@onready var path1Array = path1.get_baked_points()
+
+@onready var path2 = $"../Path2".get_curve()
+@onready var path2Array = path2.get_baked_points()
+
+@onready var path3 = $"../Path3".get_curve()
+@onready var path3Array = path3.get_baked_points()
+
+var currentPath = 0
+
+var currentPathPOS = 0
+
 @export var speed: int = 2
 
 @export var Path : PathFollow3D
 
 var canAttack : bool
-
+var isAttacking 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	currentHealth = MAX_HEALTH
@@ -32,13 +45,41 @@ func _process(delta: float) -> void:
 		canAttack = false
 
 func _physics_process(delta):
-	Path.progress += speed * delta
-	global_position = Path.global_position
+	#Path.progress += speed * delta
+	#global_position = Path.global_position
 	#Path.set_progress(Path.get_progress() * speed * delta)
 	
-	if Path.get_progress_ratio() >= 0.99:
-		Path.queue_free()
+	#if Path.get_progress_ratio() >= 0.99:
+	#	Path.queue_free()
+	#	queue_free()
+	print(currentPath)
+	if ((cur_tar == null) && (path1Array.size() > currentPathPOS) && (currentPath == 1)):
+		var PATHPOS = path1Array[currentPathPOS]
+		currentPathPOS += 1
+		#print(currentPath)
+		#print(PATHPOS)
+		global_position = PATHPOS
+		pass
+		
+	if ((cur_tar == null) && (path1Array.size() > currentPathPOS) && (currentPath == 2)):
+		var PATHPOS = path2Array[currentPathPOS]
+		currentPathPOS += 1
+		print("PATH 2222222222222222")
+		#print(PATHPOS)
+		global_position = PATHPOS
+		pass
+		
+	if ((cur_tar == null) && (path1Array.size() > currentPathPOS) && (currentPath == 3)):
+		var PATHPOS = path3Array[currentPathPOS]
+		currentPathPOS += 1
+		#print(currentPath)
+		#print(PATHPOS)
+		global_position = PATHPOS
+		pass
+		
+	if (((currentPath == 1) && (path1Array.size() == currentPathPOS)) || ((currentPath == 2) && (path2Array.size() == currentPathPOS)) ||((currentPath == 3) && (path3Array.size() == currentPathPOS))):
 		queue_free()
+		pass
 	
 
 
@@ -54,6 +95,7 @@ func damage(amount : float):
 func _on_regen_timer_timeout() -> void:
 	if currentHealth < MAX_HEALTH:
 		currentHealth = clamp(currentHealth + (healthRegen * regen_timer.wait_time), 0, MAX_HEALTH)
+		$HealthBar3D.update(currentHealth, MAX_HEALTH)
 
 
 func _on_attack_timer_timeout() -> void:
@@ -84,8 +126,10 @@ func _on_detection_range_body_exited(body: Node3D) -> void:
 		targets.erase(body)
 		choose_target(targets)
 
-func initialize(start_position, yRotation):
+func initialize(start_position, yRotation, path):
 	var vec3 = Vector3(0, yRotation, 0)
+	
 	set_rotation_degrees(vec3)
-	print(str(get_rotation()))
+	print(path)
+	currentPath = path
 	set_position(start_position)
