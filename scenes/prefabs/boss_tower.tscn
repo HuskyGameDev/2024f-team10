@@ -36,7 +36,7 @@ shape = SubResource("SphereShape3D_stqfw")
 [node name="FireRate" type="Timer" parent="."]
 
 [node name="HealthBar3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 10, 0)
 billboard = 1
 script = ExtResource("3_c11fb")
 
