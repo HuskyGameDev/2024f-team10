@@ -30,6 +30,7 @@ func _multiplier_change(value):
 
 func _path_change(value):
 	pathValue = value
+	print(pathValue)
 	pass
 
 func _on_pressed(value):#Emits sigal to checkEmerald in emerald_counter.gd

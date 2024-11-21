@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d02eu35fojsws"]
+[gd_scene load_steps=6 format=3 uid="uid://d02eu35fojsws"]
 
 [ext_resource type="Script" path="res://scripts/interface_scripts/resource_tower.gd" id="1_32dwy"]
 [ext_resource type="ArrayMesh" uid="uid://2aqecy4haywr" path="res://assets/peppermintMine.obj" id="2_i4dcr"]
+[ext_resource type="Script" path="res://scripts/health_bar_3d.gd" id="3_wi65c"]
+[ext_resource type="Script" path="res://scripts/HealthBar2D.gd" id="4_mldno"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8md3i"]
 size = Vector3(1.74549, 1.96411, 2.63716)
@@ -16,5 +18,23 @@ shape = SubResource("BoxShape3D_8md3i")
 [node name="Tower1" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.00255084, 0, -0.00237787)
 mesh = ExtResource("2_i4dcr")
+
+[node name="HealthBar3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+billboard = 1
+script = ExtResource("3_wi65c")
+
+[node name="SubViewport" type="SubViewport" parent="HealthBar3D"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(153, 30)
+render_target_update_mode = 4
+
+[node name="HealthBar2D" type="ProgressBar" parent="HealthBar3D/SubViewport"]
+offset_right = 150.0
+offset_bottom = 27.0
+value = 100.0
+show_percentage = false
+script = ExtResource("4_mldno")
 
 [connection signal="death" from="." to="." method="_on_death"]

@@ -1,7 +1,13 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=5 format=3 uid="uid://bc2u7tm7twa1p"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://cckopqeqg4j7f"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://scripts/boss_tower.gd" id="1_4efre"]
 [ext_resource type="ArrayMesh" uid="uid://v0ilfu1sriju" path="res://assets/tower1.obj" id="2_k4k7j"]
+[ext_resource type="Script" path="res://scripts/health_bar_3d.gd" id="3_o45ur"]
+[ext_resource type="Script" path="res://scripts/HealthBar2D.gd" id="4_r2nxs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_neth3"]
 size = Vector3(2.25916, 3.31642, 1.4558)
@@ -32,6 +38,24 @@ shape = SubResource("SphereShape3D_stqfw")
 [node name="BulletContainer" type="Node" parent="."]
 
 [node name="FireRate" type="Timer" parent="."]
+
+[node name="HealthBar3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+billboard = 1
+script = ExtResource("3_o45ur")
+
+[node name="SubViewport" type="SubViewport" parent="HealthBar3D"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(153, 30)
+render_target_update_mode = 4
+
+[node name="HealthBar2D" type="ProgressBar" parent="HealthBar3D/SubViewport"]
+offset_right = 150.0
+offset_bottom = 27.0
+value = 100.0
+show_percentage = false
+script = ExtResource("4_r2nxs")
 
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
