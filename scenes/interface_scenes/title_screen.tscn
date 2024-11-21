@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwo78k7wplgbi"]
+[gd_scene load_steps=4 format=3 uid="uid://dwo78k7wplgbi"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_pbqws"]
-[ext_resource type="Texture2D" uid="uid://hpwc627ww8vp" path="res://assets/battleofminis.jpg" id="2_86s1l"]
+[ext_resource type="Texture2D" uid="uid://cm5ta5gbqabvj" path="res://assets/battleofminis.jpg" id="2_86s1l"]
+[ext_resource type="Texture2D" uid="uid://d32isvjgtcs32" path="res://assets/1732157921136.webp" id="3_5k1pl"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -32,13 +33,10 @@ offset_right = 697.0
 offset_bottom = 454.0
 text = "Quit"
 
-[node name="TextEdit" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 509.0
-offset_top = 22.0
-offset_right = 670.0
-offset_bottom = 62.0
-text = "Offended Monsters"
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(593, 132)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5k1pl")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
