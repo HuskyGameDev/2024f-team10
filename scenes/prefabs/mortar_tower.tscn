@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2vcf2wfbkhy4"]
+[gd_scene load_steps=8 format=3 uid="uid://c2vcf2wfbkhy4"]
 
 [ext_resource type="Script" path="res://scripts/mortar_tower.gd" id="1_1jji6"]
 [ext_resource type="ArrayMesh" uid="uid://pvg716eji26m" path="res://assets/bubblegumTower.obj" id="2_rn5hv"]
+[ext_resource type="Script" path="res://scripts/health_bar_3d.gd" id="3_ripc7"]
+[ext_resource type="Script" path="res://scripts/HealthBar2D.gd" id="4_g05df"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_neth3"]
 size = Vector3(2.38691, 2, 2.41113)
@@ -40,6 +42,24 @@ shape = SubResource("SphereShape3D_i5tp8")
 
 [node name="FireRate" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="HealthBar3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+billboard = 1
+script = ExtResource("3_ripc7")
+
+[node name="SubViewport" type="SubViewport" parent="HealthBar3D"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(153, 30)
+render_target_update_mode = 4
+
+[node name="HealthBar2D" type="ProgressBar" parent="HealthBar3D/SubViewport"]
+offset_right = 150.0
+offset_bottom = 27.0
+value = 100.0
+show_percentage = false
+script = ExtResource("4_g05df")
 
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
